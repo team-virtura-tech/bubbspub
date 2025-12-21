@@ -8,6 +8,8 @@ export type FoodMenuItem = {
   isVegetarian?: boolean;
   isVegan?: boolean;
   allergens?: string[];
+  sizes?: string;
+  addOns?: string;
 };
 
 export type FoodCategory = {
@@ -103,7 +105,8 @@ export const foodMenu: FoodMenuItem[] = [
     id: 'taproom-nachos',
     name: 'Taproom Nachos',
     description:
-      'Choose one: chicken/beef. Double layer nachos with choice of protein, shredded lettuce, tomato, olives, pico de gallo, jalapenos, bang bang sauce, beer cheese, shredded cheese, sour cream. Guac +4',
+      'Choose one: chicken/beef. Double layer nachos with choice of protein, shredded lettuce, tomato, olives, pico de gallo, jalapenos, bang bang sauce, beer cheese, shredded cheese, sour cream.',
+    addOns: 'Guac +$4',
     price: 18,
     category: 'starters',
   },
@@ -119,7 +122,8 @@ export const foodMenu: FoodMenuItem[] = [
     id: 'house-salad',
     name: 'House Salad',
     description:
-      'Fresh greens, tomatoes, cucumbers, red onions, croutons. Choice of dressing. Add Chicken +6 Add Shrimp +6',
+      'Fresh greens, tomatoes, cucumbers, red onions, croutons. Choice of dressing.',
+    addOns: 'Chicken +$6 · Shrimp +$6',
     price: 10,
     category: 'salads',
   },
@@ -220,7 +224,9 @@ export const foodMenu: FoodMenuItem[] = [
   {
     id: 'traditional-wings',
     name: 'Traditional',
-    description: 'All flats or drums +3.00',
+    description: '',
+    addOns: 'All flats or drums +$3',
+    sizes: '8ct $14 · 16ct $21',
     price: 14,
     category: 'wings',
   },
@@ -228,6 +234,7 @@ export const foodMenu: FoodMenuItem[] = [
     id: 'wings-wings',
     name: 'Wings',
     description: '**tip on wings**',
+    sizes: '8ct $14 · 16ct $21',
     price: 14,
     category: 'wings',
   },
@@ -235,6 +242,7 @@ export const foodMenu: FoodMenuItem[] = [
     id: 'boneless-wings',
     name: 'Boneless',
     description: '',
+    sizes: '8ct $14 · 16ct $21',
     price: 14,
     category: 'wings',
   },
@@ -242,6 +250,7 @@ export const foodMenu: FoodMenuItem[] = [
     id: 'tenders',
     name: 'Tenders',
     description: '',
+    sizes: '3ct $12 · 5ct $18',
     price: 12,
     category: 'wings',
   },

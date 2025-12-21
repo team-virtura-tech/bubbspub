@@ -7,6 +7,8 @@ export type DrinkMenuItem = {
   image?: string;
   abv?: number; // Alcohol by volume percentage
   volume?: string; // e.g., "16 oz", "500ml"
+  sizes?: string;
+  addOns?: string;
 };
 
 export type DrinkCategory = {
