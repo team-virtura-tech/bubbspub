@@ -13,12 +13,6 @@ export const navigationItems: NavigationItem[] = [
     type: 'link',
   },
   {
-    id: 'order',
-    label: 'Order Now',
-    href: '/order',
-    type: 'link',
-  },
-  {
     id: 'events',
     label: 'Upcoming Events',
     href: '/events',
@@ -43,3 +37,10 @@ export const navigationItems: NavigationItem[] = [
     type: 'link',
   },
 ];
+
+export const orderOnlineItem: NavigationItem = {
+  id: 'order',
+  label: 'Order Online',
+  href: '/order-online',
+  type: 'link',
+};

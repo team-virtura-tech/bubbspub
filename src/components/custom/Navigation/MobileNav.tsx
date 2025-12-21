@@ -32,13 +32,13 @@ export const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
           {/* Mobile Menu Panel */}
           <motion.div
             data-component="MobileNav"
-            initial={shouldReduceMotion ? {} : { x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
+            initial={shouldReduceMotion ? {} : { y: '-100%' }}
+            animate={{ y: 0 }}
+            exit={{ y: '-100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed right-0 top-16 h-[calc(100vh-64px)] w-full max-w-sm border-l border-neutral-800 bg-black shadow-xl lg:hidden"
+            className="fixed left-0 right-0 top-16 w-full bg-black shadow-xl lg:hidden"
           >
-            <nav className="flex h-full flex-col overflow-y-auto p-6">
+            <nav className="p-6">
               <ul className="flex flex-col gap-2">
                 {navigationItems.map((item, index) => {
                   const isOrderNow = item.id === 'order';
