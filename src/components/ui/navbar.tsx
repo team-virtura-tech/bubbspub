@@ -21,7 +21,7 @@ const Menu = ({ list }: MenuProps) => {
 
   return (
     <MotionConfig transition={{ bounce: 0, type: 'tween' }}>
-      <nav className={'relative'}>
+      <nav className={'relative font-heading'}>
         <ul className={'flex items-center'}>
           {list?.map((item) => {
             return (

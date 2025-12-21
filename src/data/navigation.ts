@@ -48,7 +48,7 @@ export const navigationItems: NavigationItem[] = [
   {
     id: 4,
     title: 'About Us',
-    url: '/about',
+    url: '/about-us',
   },
   {
     id: 5,
