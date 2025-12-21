@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
+import Menu from '@/components/ui/navbar';
 import { navigationItems } from '@/data/navigation';
 import { cn } from '@/lib/utils';
 
@@ -36,19 +37,9 @@ export const Navigation = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <ul className="hidden items-center gap-6 lg:flex lg:gap-8">
-          {navigationItems.map((item) => (
-            <li key={item.id}>
-              <Link
-                href={item.href}
-                className="group relative inline-block pb-1 text-base font-semibold uppercase tracking-wide text-neutral-200 transition-colors"
-              >
-                {item.label}
-                <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-brand transition-all duration-300 ease-out group-hover:w-full" />
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="hidden lg:block">
+          <Menu list={navigationItems} />
+        </div>
 
         {/* Mobile Menu Button */}
         <button

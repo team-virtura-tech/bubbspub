@@ -1,46 +1,64 @@
 export type NavigationItem = {
-  id: string;
-  label: string;
-  href: string;
-  type: 'link';
+  id: number;
+  title: string;
+  url: string;
+  dropdown?: boolean;
+  items?: NavigationItem[];
 };
 
 export const navigationItems: NavigationItem[] = [
   {
-    id: 'menu',
-    label: 'Menu',
-    href: '/menu',
-    type: 'link',
+    id: 1,
+    title: 'Menu',
+    url: '/menu',
+    dropdown: true,
+    items: [
+      {
+        id: 11,
+        title: 'Food Menu',
+        url: '/menu',
+      },
+      {
+        id: 12,
+        title: 'Happy Hour',
+        url: '/menu#happy-hour',
+      },
+      {
+        id: 13,
+        title: 'Daily Special',
+        url: '/menu#daily-special',
+      },
+      {
+        id: 14,
+        title: 'Online Order',
+        url: '/order-online',
+      },
+    ],
   },
   {
-    id: 'events',
-    label: 'Upcoming Events',
-    href: '/events',
-    type: 'link',
+    id: 2,
+    title: 'Drinks',
+    url: '/drinks',
   },
   {
-    id: 'about',
-    label: 'About Us',
-    href: '/about',
-    type: 'link',
+    id: 3,
+    title: 'Upcoming Events',
+    url: '/events',
   },
   {
-    id: 'vip',
-    label: 'Become a VIP',
-    href: '/vip',
-    type: 'link',
+    id: 4,
+    title: 'About Us',
+    url: '/about',
   },
   {
-    id: 'signin',
-    label: 'Sign In',
-    href: '/signin',
-    type: 'link',
+    id: 5,
+    title: 'Contact Us',
+    url: '/contact',
   },
 ];
 
 export const orderOnlineItem: NavigationItem = {
-  id: 'order',
-  label: 'Order Online',
-  href: '/order-online',
-  type: 'link',
+  id: 6,
+  title: 'Order Online',
+  url: '/order-online',
 };

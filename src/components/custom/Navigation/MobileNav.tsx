@@ -3,8 +3,7 @@
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
 
-import { navigationItems } from '@/data/navigation';
-import { cn } from '@/lib/utils';
+import { navigationItems, orderOnlineItem } from '@/data/navigation';
 
 export type MobileNavProps = {
   isOpen: boolean;
@@ -40,30 +39,56 @@ export const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
           >
             <nav className="p-6">
               <ul className="flex flex-col gap-2">
-                {navigationItems.map((item, index) => {
-                  const isOrderNow = item.id === 'order';
-                  return (
-                    <motion.li
-                      key={item.id}
-                      initial={shouldReduceMotion ? {} : { opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05, duration: 0.2 }}
-                    >
+                {navigationItems.map((item, index) => (
+                  <motion.li
+                    key={item.id}
+                    initial={shouldReduceMotion ? {} : { opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05, duration: 0.2 }}
+                  >
+                    {item.dropdown && item.items ? (
+                      <div className="flex flex-col gap-1">
+                        <span className="px-4 py-2 text-sm font-semibold uppercase tracking-wide text-neutral-400">
+                          {item.title}
+                        </span>
+                        {item.items.map((subItem) => (
+                          <Link
+                            key={subItem.id}
+                            href={subItem.url}
+                            onClick={onClose}
+                            className="block rounded-lg px-6 py-2 text-base font-medium uppercase tracking-wide text-neutral-200 transition-colors hover:bg-white/5 hover:text-white"
+                          >
+                            {subItem.title}
+                          </Link>
+                        ))}
+                      </div>
+                    ) : (
                       <Link
-                        href={item.href}
+                        href={item.url}
                         onClick={onClose}
-                        className={cn(
-                          'block rounded-lg px-4 py-3 text-base font-semibold uppercase tracking-wide transition-colors',
-                          isOrderNow
-                            ? 'bg-red-600 text-center text-white hover:bg-red-700'
-                            : 'text-neutral-200 hover:bg-white/5 hover:text-white'
-                        )}
+                        className="block rounded-lg px-4 py-3 text-base font-semibold uppercase tracking-wide text-neutral-200 transition-colors hover:bg-white/5 hover:text-white"
                       >
-                        {item.label}
+                        {item.title}
                       </Link>
-                    </motion.li>
-                  );
-                })}
+                    )}
+                  </motion.li>
+                ))}
+                <motion.li
+                  initial={shouldReduceMotion ? {} : { opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{
+                    delay: navigationItems.length * 0.05,
+                    duration: 0.2,
+                  }}
+                >
+                  <Link
+                    href={orderOnlineItem.url}
+                    onClick={onClose}
+                    className="block rounded-lg bg-red-600 px-4 py-3 text-center text-base font-semibold uppercase tracking-wide text-white transition-colors hover:bg-red-700"
+                  >
+                    {orderOnlineItem.title}
+                  </Link>
+                </motion.li>
               </ul>
             </nav>
           </motion.div>
