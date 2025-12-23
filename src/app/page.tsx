@@ -1,5 +1,4 @@
 import { HeroSection } from '@/components/custom/HeroSection';
-import { OrderOnlineButton } from '@/components/custom/OrderOnline';
 import { WelcomeSection } from '@/components/custom/WelcomeSection';
 
 export default function Home() {
@@ -7,7 +6,6 @@ export default function Home() {
     <div>
       <HeroSection />
       <WelcomeSection />
-      <OrderOnlineButton />
     </div>
   );
 }
