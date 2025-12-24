@@ -199,12 +199,12 @@ const ContactForm = () => {
       variants={containerVariants}
       className="h-full w-full"
     >
-      <Card className="h-full border-white/10 bg-black/50 backdrop-blur-sm">
+      <Card className="h-full border-white/20 bg-zinc-900/90 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-white uppercase tracking-tight">
             Send Us a Message
           </CardTitle>
-          <CardDescription className="text-white/60">
+          <CardDescription className="text-white/70">
             Have a question or want to make a reservation? Fill out the form
             below and we&apos;ll get back to you as soon as possible.
           </CardDescription>
@@ -224,7 +224,7 @@ const ContactForm = () => {
                           <Input
                             {...field}
                             placeholder="Your name"
-                            className="border-white/20 bg-white/5 text-white placeholder:text-white/40 focus:border-brand focus:ring-brand"
+                            className="border-white/30 bg-white/10 text-white placeholder:text-white/50 focus:border-brand focus:ring-brand"
                             disabled={isSubmitting}
                             required
                           />
@@ -245,7 +245,7 @@ const ContactForm = () => {
                             {...field}
                             type="email"
                             placeholder="your.email@example.com"
-                            className="border-white/20 bg-white/5 text-white placeholder:text-white/40 focus:border-brand focus:ring-brand"
+                            className="border-white/30 bg-white/10 text-white placeholder:text-white/50 focus:border-brand focus:ring-brand"
                             disabled={isSubmitting}
                             required
                           />
@@ -268,7 +268,7 @@ const ContactForm = () => {
                             {...field}
                             type="tel"
                             placeholder="(224) 555-1234"
-                            className="border-white/20 bg-white/5 text-white placeholder:text-white/40 focus:border-brand focus:ring-brand"
+                            className="border-white/30 bg-white/10 text-white placeholder:text-white/50 focus:border-brand focus:ring-brand"
                             disabled={isSubmitting}
                           />
                         </FormControl>
@@ -287,7 +287,7 @@ const ContactForm = () => {
                           <Input
                             {...field}
                             placeholder="What's this about?"
-                            className="border-white/20 bg-white/5 text-white placeholder:text-white/40 focus:border-brand focus:ring-brand"
+                            className="border-white/30 bg-white/10 text-white placeholder:text-white/50 focus:border-brand focus:ring-brand"
                             disabled={isSubmitting}
                           />
                         </FormControl>
@@ -308,13 +308,13 @@ const ContactForm = () => {
                           {...field}
                           placeholder="Tell us how we can help..."
                           rows={6}
-                          className="border-white/20 bg-white/5 text-white placeholder:text-white/40 focus:border-brand focus:ring-brand"
+                          className="border-white/30 bg-white/10 text-white placeholder:text-white/50 focus:border-brand focus:ring-brand"
                           disabled={isSubmitting}
                           required
                           minLength={10}
                         />
                       </FormControl>
-                      <FormDescription className="text-white/50">
+                      <FormDescription className="text-white/60">
                         Minimum 10 characters required
                       </FormDescription>
                       <FormMessage />
@@ -401,7 +401,7 @@ const BusinessDetailsSection = () => {
       variants={containerVariants}
       className="h-full w-full"
     >
-      <Card className="h-full border-white/10 bg-black/50 backdrop-blur-sm">
+      <Card className="h-full border-white/20 bg-zinc-900/90 backdrop-blur-sm">
         <CardHeader className="pb-4">
           <CardTitle className="text-2xl font-bold text-white uppercase tracking-tight">
             Get in Touch
@@ -411,14 +411,14 @@ const BusinessDetailsSection = () => {
           {/* Address */}
           <motion.div variants={itemVariants}>
             <div className="flex items-start gap-3">
-              <div className="mt-0.5 shrink-0">
+              <div className="mt-0.5 shrink-0 rounded-full bg-brand/20 p-1.5">
                 <MapPin className="h-5 w-5 text-brand" />
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="mb-1 text-xs font-semibold uppercase tracking-wider text-white">
                   Address
                 </h3>
-                <p className="mb-2 text-sm text-white/80 leading-snug">
+                <p className="mb-2 text-sm text-white/90 leading-snug">
                   {contact.address.full}
                 </p>
                 <motion.a
@@ -427,7 +427,7 @@ const BusinessDetailsSection = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand uppercase tracking-wider transition-colors hover:text-brand-hover"
+                  className="inline-flex items-center gap-1.5 rounded-md bg-brand px-3 py-1.5 text-xs font-semibold text-white uppercase tracking-wider transition-all hover:bg-brand-hover"
                 >
                   Get Directions
                   <motion.svg
@@ -455,24 +455,24 @@ const BusinessDetailsSection = () => {
           </motion.div>
 
           {/* Divider */}
-          <div className="border-t border-white/10" />
+          <div className="border-t border-white/20" />
 
           {/* Phone */}
           <motion.div variants={itemVariants}>
             <div className="flex items-start gap-3">
-              <div className="mt-0.5 shrink-0">
+              <div className="mt-0.5 shrink-0 rounded-full bg-brand/20 p-1.5">
                 <Phone className="h-5 w-5 text-brand" />
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="mb-1 text-xs font-semibold uppercase tracking-wider text-white">
                   Phone
                 </h3>
-                <p className="mb-2 text-sm text-white/80">{contact.phone}</p>
+                <p className="mb-2 text-sm text-white/90">{contact.phone}</p>
                 <motion.a
                   href={phoneHref}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand uppercase tracking-wider transition-colors hover:text-brand-hover"
+                  className="inline-flex items-center gap-1.5 rounded-md bg-brand px-3 py-1.5 text-xs font-semibold text-white uppercase tracking-wider transition-all hover:bg-brand-hover"
                 >
                   Call Us
                   <motion.svg
@@ -500,19 +500,19 @@ const BusinessDetailsSection = () => {
           </motion.div>
 
           {/* Divider */}
-          <div className="border-t border-white/10" />
+          <div className="border-t border-white/20" />
 
           {/* Hours */}
           <motion.div variants={itemVariants}>
             <div className="flex items-start gap-3">
-              <div className="mt-0.5 shrink-0">
+              <div className="mt-0.5 shrink-0 rounded-full bg-brand/20 p-1.5">
                 <Clock className="h-5 w-5 text-brand" />
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="mb-1.5 text-xs font-semibold uppercase tracking-wider text-white">
                   Hours
                 </h3>
-                <div className="space-y-1 text-sm text-white/80">
+                <div className="space-y-1 text-sm text-white/90">
                   <p>{contact.hours.weekdays}</p>
                   <p>{contact.hours.weekend}</p>
                 </div>
@@ -521,24 +521,24 @@ const BusinessDetailsSection = () => {
           </motion.div>
 
           {/* Divider */}
-          <div className="border-t border-white/10" />
+          <div className="border-t border-white/20" />
 
           {/* Email */}
           <motion.div variants={itemVariants}>
             <div className="flex items-start gap-3">
-              <div className="mt-0.5 shrink-0">
+              <div className="mt-0.5 shrink-0 rounded-full bg-brand/20 p-1.5">
                 <Mail className="h-5 w-5 text-brand" />
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="mb-1 text-xs font-semibold uppercase tracking-wider text-white">
                   Email
                 </h3>
-                <p className="mb-2 text-sm text-white/80">info@bubbspub.com</p>
+                <p className="mb-2 text-sm text-white/90">info@bubbspub.com</p>
                 <motion.a
                   href="mailto:info@bubbspub.com"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand uppercase tracking-wider transition-colors hover:text-brand-hover"
+                  className="inline-flex items-center gap-1.5 rounded-md bg-brand px-3 py-1.5 text-xs font-semibold text-white uppercase tracking-wider transition-all hover:bg-brand-hover"
                 >
                   Send Email
                   <motion.svg
@@ -610,7 +610,7 @@ const ContactUsPage = () => {
       <ContactHeroSection />
 
       {/* Business Details and Form - Side by side on large screens */}
-      <section className="bg-black px-4 py-16 md:px-8 lg:py-20">
+      <section className="bg-zinc-950 px-4 py-16 md:px-8 lg:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12 lg:items-stretch">
             {/* Business Details - Left side on large screens */}
