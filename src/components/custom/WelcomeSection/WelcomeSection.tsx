@@ -1,33 +1,70 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { ArrowRight, ShoppingCart, Users, UtensilsCrossed } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import type React from 'react';
+
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 
 interface FeatureCard {
   title: string;
+  description: string;
   image: string;
   buttonText: string;
   buttonLink: string;
+  icon: React.ReactNode;
 }
 
 const featureCards: FeatureCard[] = [
   {
     title: 'Our Food',
-    image: '/images/landingPage/welcomeSection/food.jpg',
+    description: 'Savor our signature dishes crafted with passion',
+    image: '/images/landingPage/welcomeSection/pizza.png',
     buttonText: 'View Our Menu',
     buttonLink: '/menu',
+    icon: <UtensilsCrossed className="size-6" />,
   },
   {
-    title: 'Who We Are?',
-    image: '/images/landingPage/welcomeSection/about.jpg',
+    title: 'Who We Are',
+    description: "Discover the story behind Bubb's Corner Pub",
+    image: '/images/landingPage/welcomeSection/Burger.png',
     buttonText: 'About Us',
     buttonLink: '/about-us',
+    icon: <Users className="size-6" />,
   },
   {
     title: 'Order Online',
-    image: '/images/landingPage/welcomeSection/order.jpg',
+    description: 'Get your favorites delivered or ready for pickup',
+    image: '/images/landingPage/welcomeSection/wings.png',
     buttonText: 'Order Now',
     buttonLink: '/order',
+    icon: <ShoppingCart className="size-6" />,
   },
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+    },
+  },
+};
 
 export const WelcomeSection = () => {
   const componentName = 'WelcomeSection';
@@ -36,69 +73,115 @@ export const WelcomeSection = () => {
     <section
       id={componentName}
       data-component={componentName}
-      className="bg-black px-4 py-16 md:px-8 lg:px-16 lg:py-24"
+      className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 px-4 py-20 md:px-8 lg:px-16 lg:py-32"
     >
-      <div className="mx-auto max-w-6xl">
-        {/* Title */}
-        <h2 className="mb-6 text-center text-3xl tracking-wide text-white uppercase italic md:text-4xl lg:text-5xl">
-          Welcome to Bubb&apos;s Corner Pub
-        </h2>
+      {/* Decorative background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px]" />
+      </div>
 
-        {/* Description */}
-        <p className="mx-auto mb-12 max-w-4xl text-center text-base leading-relaxed text-white/70 md:text-lg">
-          At{' '}
-          <span className="font-semibold text-white">
-            Bubb&apos;s Corner Pub
-          </span>
-          , we bring the best of{' '}
-          <span className="font-semibold text-white">
-            Midwestern hospitality
-          </span>{' '}
-          together with the excitement of a true sports pub. Whether you are
-          stopping in for a casual meal with friends, catching the big game on
-          our <span className="font-semibold text-white">wide-screen TVs</span>,
-          or celebrating with the community, our pub is the place to be. From
-          sizzling <span className="font-semibold text-white">wings</span> and
-          loaded <span className="font-semibold text-white">waffle fries</span>{' '}
-          to fresh <span className="font-semibold text-white">flatbreads</span>,
-          burgers, and craft brews, our menu is packed with{' '}
-          <span className="font-semibold text-white">
-            elevated comfort food
-          </span>{' '}
-          that fuels good times and great memories.
-        </p>
+      <div className="relative mx-auto max-w-[1400px]">
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-16 text-center"
+        >
+          <h2 className="mb-6 text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
+            <span className="block font-heading uppercase">Welcome to</span>
+            <span className="mt-2 block font-heading text-white">
+              Bubb&apos;s Corner Pub
+            </span>
+          </h2>
 
-        {/* Feature Cards */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {featureCards.map((card) => (
-            <div key={card.title} className="flex flex-col items-center">
-              {/* Card Image */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg">
-                <Image
-                  src={card.image}
-                  alt={card.title}
-                  fill
-                  className="object-cover transition-transform duration-300 hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                {/* Overlay with Title */}
-                <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                  <h3 className="text-2xl tracking-wider text-white uppercase italic md:text-3xl lg:text-4xl">
-                    {card.title}
-                  </h3>
+          <div className="mx-auto mb-8 h-1 w-40 bg-gradient-to-r from-transparent via-brand to-transparent" />
+
+          <p className="mx-auto max-w-4xl text-lg leading-relaxed text-white md:text-xl">
+            At{' '}
+            <span className="font-semibold text-white">
+              Bubb&apos;s Corner Pub
+            </span>
+            , we bring the best of{' '}
+            <span className="font-semibold text-white">
+              Midwestern hospitality
+            </span>{' '}
+            together with the excitement of a true sports pub. Whether
+            you&apos;re stopping in for a casual meal with friends, catching the
+            big game on our{' '}
+            <span className="font-semibold text-white">wide-screen TVs</span>,
+            or celebrating with the community, our pub is the place to be. From
+            sizzling <span className="font-semibold text-white">wings</span> and
+            loaded{' '}
+            <span className="font-semibold text-white">waffle fries</span> to
+            fresh <span className="font-semibold text-white">flatbreads</span>,
+            burgers, and craft brews, our menu is packed with{' '}
+            <span className="font-semibold text-white">
+              elevated comfort food
+            </span>{' '}
+            that fuels good times and great memories.
+          </p>
+        </motion.div>
+
+        {/* Feature Cards Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          className="grid grid-cols-1 gap-6 md:grid-cols-3"
+        >
+          {featureCards.map((card, index) => (
+            <motion.div key={card.title} variants={cardVariants}>
+              <Card className="group relative h-full overflow-hidden border-0 bg-slate-900/50 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl hover:shadow-brand/20">
+                {/* Image Container */}
+                <div className="relative aspect-4/3 w-full overflow-hidden">
+                  <Image
+                    src={card.image}
+                    alt={card.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    priority={index === 0}
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent transition-opacity duration-500 group-hover:from-slate-950/95 group-hover:via-slate-950/60" />
+
+                  {/* Icon Badge */}
+                  <div className="absolute left-4 top-4 rounded-full bg-brand/90 p-3 text-white shadow-lg backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-brand">
+                    {card.icon}
+                  </div>
+
+                  {/* Title Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="mb-2 text-2xl font-bold tracking-tight text-white md:text-3xl">
+                      {card.title}
+                    </h3>
+                    <p className="text-sm text-slate-300 md:text-base">
+                      {card.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-              {/* Button */}
-              <Link
-                href={card.buttonLink}
-                className="mt-6 rounded-md border-2 border-brand bg-brand px-6 py-3 font-semibold tracking-wider text-white uppercase transition-all duration-300 hover:bg-brand-hover hover:border-brand-hover"
-              >
-                {card.buttonText}
-              </Link>
-            </div>
+                {/* Card Content */}
+                <CardContent className="p-6">
+                  <Button
+                    asChild
+                    variant="brand"
+                    size="lg"
+                    className="w-full group/btn"
+                  >
+                    <Link href={card.buttonLink}>
+                      <span>{card.buttonText}</span>
+                      <ArrowRight className="ml-2 size-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
