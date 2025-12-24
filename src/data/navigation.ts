@@ -53,7 +53,7 @@ export const navigationItems: NavigationItem[] = [
   {
     id: 5,
     title: 'Contact Us',
-    url: '/contact',
+    url: '/contact-us',
   },
 ];
 
