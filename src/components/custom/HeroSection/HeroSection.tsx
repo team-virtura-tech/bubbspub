@@ -16,7 +16,7 @@ export const HeroSection = () => {
     >
       {/* Background Image */}
       <Image
-        src="/images/landingPage/heroSection/heroSection2.jpg"
+        src="/images/landingPage/heroSection/heroSection4.png"
         alt="Hero background"
         fill
         priority
@@ -25,11 +25,19 @@ export const HeroSection = () => {
         quality={100}
       />
 
+      {/* Dark Gradient Overlay - Left Side */}
+      {/* <div className="absolute inset-0 z-[5] bg-gradient-to-r from-black/70 via-black/40 to-transparent" /> */}
+
       {/* Content Overlay */}
-      <div className="relative z-10 flex h-full w-full flex-col items-center justify-center">
-        <h1 className="text-center text-4xl font-bold text-white md:text-5xl lg:text-6xl">
-          Where Community Meets Every Game
-        </h1>
+      <div className="relative z-10 flex h-full w-full items-center justify-start px-6 md:px-12 lg:px-16">
+        <div className="flex max-w-2xl flex-col">
+          <h1 className="text-left text-4xl font-bold tracking-[0.375rem] text-white md:text-5xl lg:text-6xl">
+            Your Neighborhood.
+          </h1>
+          <h1 className="text-left text-4xl font-bold tracking-[0.375rem] text-white md:text-5xl lg:text-6xl">
+            Your Pub.
+          </h1>
+        </div>
       </div>
 
       {/* Address & Phone at Bottom */}
