@@ -51,6 +51,7 @@ export const drinkMenu: DrinkMenuItem[] = [
     description: 'Coke products-free refills',
     price: 3.75,
     category: 'beverages',
+    image: '/images/drinks/soda.png',
   },
   {
     id: 'pineapple-orange-bull',
@@ -58,6 +59,7 @@ export const drinkMenu: DrinkMenuItem[] = [
     description: '',
     price: 5.5,
     category: 'beverages',
+    image: '/images/drinks/pineapple_orange_bull.png',
   },
   {
     id: 'orange-juice',
@@ -65,6 +67,7 @@ export const drinkMenu: DrinkMenuItem[] = [
     description: '',
     price: 3.5,
     category: 'beverages',
+    image: '/images/drinks/orange_juice.png',
   },
   {
     id: 'ibc-root-beer',
@@ -72,6 +75,7 @@ export const drinkMenu: DrinkMenuItem[] = [
     description: '',
     price: 4.5,
     category: 'beverages',
+    image: '/images/drinks/ibc_root_beer.png',
   },
   {
     id: 'ginger-berry-cooler',

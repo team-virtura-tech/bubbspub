@@ -15,7 +15,8 @@ export default function DrinksPage() {
             id: drink.id,
             name: drink.name,
             subtitle: `$${drink.price.toFixed(2)}`,
-            imageSrc: '/images/drinksPage/heroSection/heroSection1.png',
+            imageSrc:
+              drink.image || '/images/drinksPage/heroSection/heroSection2.png',
             isNew: false,
           }));
 
