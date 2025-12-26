@@ -21,12 +21,12 @@ export const navigationItems: NavigationItem[] = [
       {
         id: 12,
         title: 'Happy Hour',
-        url: '/menu#happy-hour',
+        url: '/menu/happy-hour',
       },
       {
         id: 13,
         title: 'Daily Special',
-        url: '/menu#daily-special',
+        url: '/menu/daily-special',
       },
       {
         id: 14,
