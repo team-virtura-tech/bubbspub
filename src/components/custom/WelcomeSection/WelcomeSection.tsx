@@ -73,7 +73,7 @@ export const WelcomeSection = () => {
     <section
       id={componentName}
       data-component={componentName}
-      className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 px-4 py-20 md:px-8 lg:px-16 lg:py-32"
+      className="relative overflow-hidden bg-gradient-to-b from-stone-950 via-stone-900 to-stone-950 px-4 py-20 md:px-8 lg:px-16 lg:py-32"
     >
       {/* Decorative background pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -134,19 +134,19 @@ export const WelcomeSection = () => {
         >
           {featureCards.map((card, index) => (
             <motion.div key={card.title} variants={cardVariants}>
-              <Card className="group relative h-full overflow-hidden border-0 bg-slate-900/50 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl hover:shadow-brand/20">
+              <Card className="group relative h-full overflow-hidden border-0 bg-stone-900/30 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl hover:shadow-brand/20">
                 {/* Image Container */}
                 <div className="relative aspect-4/3 w-full overflow-hidden">
                   <Image
                     src={card.image}
                     alt={card.title}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="brightness-110 object-cover transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, 33vw"
                     priority={index === 0}
                   />
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent transition-opacity duration-500 group-hover:from-slate-950/95 group-hover:via-slate-950/60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-stone-950/50 via-stone-950/20 to-transparent transition-opacity duration-500 group-hover:from-stone-950/60 group-hover:via-stone-950/30" />
 
                   {/* Icon Badge */}
                   <div className="absolute left-4 top-4 rounded-full bg-brand/90 p-3 text-white shadow-lg backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-brand">
@@ -158,7 +158,7 @@ export const WelcomeSection = () => {
                     <h3 className="mb-2 text-2xl font-bold tracking-tight text-white md:text-3xl">
                       {card.title}
                     </h3>
-                    <p className="text-sm text-slate-300 md:text-base">
+                    <p className="text-sm text-stone-300 md:text-base">
                       {card.description}
                     </p>
                   </div>

@@ -141,7 +141,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
               disabled={!canScrollLeft}
               aria-label="Scroll left"
               className={cn(
-                'p-2 rounded-full border border-border bg-card text-card-foreground transition-opacity duration-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-muted'
+                'cursor-pointer p-2 rounded-full border border-border bg-card text-card-foreground transition-opacity duration-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-muted'
               )}
             >
               <ChevronLeft className="h-5 w-5" />
@@ -152,7 +152,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
               disabled={!canScrollRight}
               aria-label="Scroll right"
               className={cn(
-                'p-2 rounded-full border border-border bg-card text-card-foreground transition-opacity duration-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-muted'
+                'cursor-pointer p-2 rounded-full border border-border bg-card text-card-foreground transition-opacity duration-300 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-muted'
               )}
             >
               <ChevronRight className="h-5 w-5" />

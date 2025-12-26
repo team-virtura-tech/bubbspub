@@ -18,7 +18,7 @@ export const OrderOnlineButton = ({ className }: OrderOnlineButtonProps) => {
     >
       <Link
         href={orderOnlineItem.url}
-        className="group flex flex-col items-center gap-3 bg-brand px-4 py-6 rounded-l-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:px-5"
+        className="cursor-pointer group flex flex-col items-center gap-3 bg-brand px-4 py-6 rounded-l-2xl shadow-lg transition-all duration-300 hover:shadow-xl hover:px-5"
         style={{ writingMode: 'vertical-rl' }}
       >
         {/* Order Online Text - Vertical */}

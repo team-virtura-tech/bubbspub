@@ -260,16 +260,24 @@ export const getDailySpecials = (day: DailySpecial['day']) => {
   return dailySpecials.filter((special) => special.day === day);
 };
 
+/**
+ * Get the current day of the week in EST/EDT timezone
+ */
+const getCurrentDayInEST = (): DailySpecial['day'] => {
+  const now = new Date();
+  const estFormatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/New_York',
+    weekday: 'long',
+  });
+  const dayName = estFormatter.format(now).toLowerCase() as DailySpecial['day'];
+  return dayName;
+};
+
 export const getCurrentDaySpecials = () => {
-  const days: DailySpecial['day'][] = [
-    'sunday',
-    'monday',
-    'tuesday',
-    'wednesday',
-    'thursday',
-    'friday',
-    'saturday',
-  ];
-  const today = new Date().getDay();
-  return getDailySpecials(days[today]);
+  const today = getCurrentDayInEST();
+  return getDailySpecials(today);
+};
+
+export const getCurrentDayName = (): DailySpecial['day'] => {
+  return getCurrentDayInEST();
 };

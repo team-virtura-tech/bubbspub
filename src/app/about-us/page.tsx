@@ -808,7 +808,7 @@ const VisitSection = () => {
               href={contact.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border-2 border-brand bg-brand px-8 py-4 font-semibold tracking-wider text-white uppercase transition-all duration-300 hover:border-brand-hover hover:bg-brand-hover"
+              className="cursor-pointer inline-flex items-center gap-2 rounded-md border-2 border-brand bg-brand px-8 py-4 font-semibold tracking-wider text-white uppercase transition-all duration-300 hover:border-brand-hover hover:bg-brand-hover"
             >
               <svg
                 className="h-5 w-5"
@@ -834,7 +834,7 @@ const VisitSection = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/menu"
-                className="inline-flex items-center gap-2 rounded-md border-2 border-white/20 bg-transparent px-8 py-4 font-semibold tracking-wider text-white uppercase transition-all duration-300 hover:border-brand hover:bg-brand"
+                className="cursor-pointer inline-flex items-center gap-2 rounded-md border-2 border-white/20 bg-transparent px-8 py-4 font-semibold tracking-wider text-white uppercase transition-all duration-300 hover:border-brand hover:bg-brand"
               >
                 View Menu
               </Link>
