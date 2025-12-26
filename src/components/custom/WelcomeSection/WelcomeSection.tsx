@@ -1,11 +1,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, ShoppingCart, Users, UtensilsCrossed } from 'lucide-react';
+import Lottie from 'lottie-react';
+import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type React from 'react';
 
+import plateForkKnifeAnimation from '@/../public/icons/animated/plate-fork-knife-hover-pinch.json';
+import scooterAnimation from '@/../public/icons/animated/scooter-hover-pinch.json';
+import twoAvatarAnimation from '@/../public/icons/animated/two-avatar-icon-calm-hover-jumping.json';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -25,7 +29,14 @@ const featureCards: FeatureCard[] = [
     image: '/images/landingPage/welcomeSection/pizza.png',
     buttonText: 'View Our Menu',
     buttonLink: '/menu',
-    icon: <UtensilsCrossed className="size-6" />,
+    icon: (
+      <Lottie
+        animationData={plateForkKnifeAnimation}
+        loop={true}
+        autoplay={true}
+        className="size-10"
+      />
+    ),
   },
   {
     title: 'Who We Are',
@@ -33,7 +44,14 @@ const featureCards: FeatureCard[] = [
     image: '/images/landingPage/welcomeSection/Burger.png',
     buttonText: 'About Us',
     buttonLink: '/about-us',
-    icon: <Users className="size-6" />,
+    icon: (
+      <Lottie
+        animationData={twoAvatarAnimation}
+        loop={true}
+        autoplay={true}
+        className="size-10"
+      />
+    ),
   },
   {
     title: 'Order Online',
@@ -41,7 +59,14 @@ const featureCards: FeatureCard[] = [
     image: '/images/landingPage/welcomeSection/wings.png',
     buttonText: 'Order Now',
     buttonLink: '/order',
-    icon: <ShoppingCart className="size-6" />,
+    icon: (
+      <Lottie
+        animationData={scooterAnimation}
+        loop={true}
+        autoplay={true}
+        className="size-10"
+      />
+    ),
   },
 ];
 

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Lato, Oswald } from 'next/font/google';
 import type React from 'react';
 
+import { Footer } from '@/components/custom/Footer';
 import { Navigation } from '@/components/custom/Navigation';
 import { OrderOnlineButton } from '@/components/custom/OrderOnline';
 import './globals.css';
@@ -35,6 +36,7 @@ export default function RootLayout({
       <body className={`${oswald.variable} ${lato.variable} antialiased`}>
         <Navigation />
         {children}
+        <Footer />
         <OrderOnlineButton />
       </body>
     </html>
