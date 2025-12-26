@@ -15,7 +15,7 @@ export const navigationItems: NavigationItem[] = [
     items: [
       {
         id: 11,
-        title: 'Food Menu',
+        title: 'Full Menu',
         url: '/menu',
       },
       {

@@ -1,11 +1,16 @@
 'use client';
 
 import Lottie from 'lottie-react';
-import { Beer, Instagram, Music, Users } from 'lucide-react';
+import { Instagram } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
+import billiardsAnimation from '@/../public/icons/animated/billiards-hover-pinch.json';
+import musicAnimation from '@/../public/icons/animated/music-note-hover-bounce.json';
+import pizzaAnimation from '@/../public/icons/animated/pizza-hover-pinch.json';
 import beerGlassesAnimation from '@/../public/icons/animated/two-glasses-pint-beer-hover-pinch.json';
 import { InfiniteScrollStrip } from '@/components/custom/InfiniteScrollStrip';
+import { navigationItems } from '@/data/navigation';
 import { cn } from '@/lib/utils';
 
 export type FooterProps = {
@@ -16,17 +21,14 @@ export const Footer = ({ className }: FooterProps) => {
   const componentName = 'Footer';
   const currentYear = new Date().getFullYear();
 
-  // All links in a single array
-  const allLinks = [
-    { id: 11, title: 'Food Menu', url: '/menu' },
-    { id: 12, title: 'Happy Hour', url: '/menu#happy-hour' },
-    { id: 13, title: 'Daily Special', url: '/menu#daily-special' },
-    { id: 2, title: 'Drinks', url: '/drinks' },
-    { id: 3, title: 'Upcoming Events', url: '/events' },
-    { id: 4, title: 'About Us', url: '/about-us' },
-    { id: 5, title: 'Contact Us', url: '/contact-us' },
-    { id: 14, title: 'Online Order', url: '/order-online' },
-  ];
+  // Flatten navigation items (include dropdown items from Menu + top-level items)
+  const allLinks = navigationItems.flatMap((item) => {
+    if (item.dropdown && item.items) {
+      return item.items;
+    }
+    return [item];
+  });
+
   // bg-slate-950
   return (
     <footer
@@ -38,13 +40,63 @@ export const Footer = ({ className }: FooterProps) => {
       <InfiniteScrollStrip
         items={[
           'Bubbs Corner Pub',
-          <Beer key="beer" />,
-          <Music key="music" />,
-          <Users key="users" />,
+          <Lottie
+            key="beer"
+            animationData={beerGlassesAnimation}
+            loop={true}
+            autoplay={true}
+            className="size-32 md:size-40"
+          />,
+          <Lottie
+            key="music"
+            animationData={musicAnimation}
+            loop={true}
+            autoplay={true}
+            className="size-32 md:size-40"
+          />,
+          <Lottie
+            key="pizza"
+            animationData={pizzaAnimation}
+            loop={true}
+            autoplay={true}
+            className="size-32 md:size-40"
+          />,
+          <Lottie
+            key="billiards"
+            animationData={billiardsAnimation}
+            loop={true}
+            autoplay={true}
+            className="size-32 md:size-40"
+          />,
           'Bubbs Corner Pub',
-          <Beer key="beer" />,
-          <Music key="music" />,
-          <Users key="users" />,
+          <Lottie
+            key="billiards"
+            animationData={billiardsAnimation}
+            loop={true}
+            autoplay={true}
+            className="size-32 md:size-40"
+          />,
+          <Lottie
+            key="pizza"
+            animationData={pizzaAnimation}
+            loop={true}
+            autoplay={true}
+            className="size-32 md:size-40"
+          />,
+          <Lottie
+            key="music"
+            animationData={musicAnimation}
+            loop={true}
+            autoplay={true}
+            className="size-32 md:size-40"
+          />,
+          <Lottie
+            key="beer"
+            animationData={beerGlassesAnimation}
+            loop={true}
+            autoplay={true}
+            className="size-32 md:size-40"
+          />,
         ]}
         speed="slow"
         direction="right"
@@ -54,13 +106,15 @@ export const Footer = ({ className }: FooterProps) => {
       <div className="mx-auto max-w-[1400px] px-4 py-12 md:px-8 lg:px-16">
         {/* Main Footer Content */}
         <div className="flex flex-col items-center gap-8">
-          {/* Animated Logo/Icon - Centered */}
-          <div className="flex items-center justify-center">
-            <Lottie
-              animationData={beerGlassesAnimation}
-              loop={true}
-              autoplay={true}
-              className="size-32 md:size-40"
+          {/* Brand Logo/Icon - Centered */}
+          <div className="relative flex h-32 w-32 items-center justify-center md:h-40 md:w-40">
+            <Image
+              src="/bubbs_logo_transparent.png"
+              alt="Bubb's Corner Pub"
+              fill
+              className="object-contain"
+              priority
+              sizes="(max-width: 768px) 128px, 160px"
             />
           </div>
 
@@ -80,22 +134,6 @@ export const Footer = ({ className }: FooterProps) => {
 
         {/* Bottom Section */}
         <div className="mt-12 flex flex-col items-start justify-between gap-6 border-t border-white/20 pt-8 md:flex-row md:items-center">
-          {/* Privacy Links */}
-          <div className="flex flex-wrap gap-4 text-sm text-white/70 md:gap-6">
-            <Link
-              href="/privacy"
-              className="transition-colors hover:text-white"
-            >
-              Privacy & Cookie Policy
-            </Link>
-            <Link
-              href="/accessibility"
-              className="transition-colors hover:text-white"
-            >
-              Accessibility Statement
-            </Link>
-          </div>
-
           {/* Social Icons */}
           <div className="flex items-center gap-4">
             <Link
