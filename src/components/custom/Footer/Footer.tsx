@@ -1,10 +1,11 @@
 'use client';
 
 import Lottie from 'lottie-react';
-import { Instagram } from 'lucide-react';
+import { Beer, Instagram, Music, Users } from 'lucide-react';
 import Link from 'next/link';
 
 import beerGlassesAnimation from '@/../public/icons/animated/two-glasses-pint-beer-hover-pinch.json';
+import { InfiniteScrollStrip } from '@/components/custom/InfiniteScrollStrip';
 import { cn } from '@/lib/utils';
 
 export type FooterProps = {
@@ -31,12 +32,26 @@ export const Footer = ({ className }: FooterProps) => {
     <footer
       id={componentName}
       data-component={componentName}
-      className={cn(
-        'bg-brand px-4 py-12 text-white md:px-8 lg:px-16',
-        className
-      )}
+      className={cn('bg-brand text-white', className)}
     >
-      <div className="mx-auto max-w-[1400px]">
+      {/* Infinite Scroll Strip at the Top */}
+      <InfiniteScrollStrip
+        items={[
+          'Bubbs Corner Pub',
+          <Beer key="beer" />,
+          <Music key="music" />,
+          <Users key="users" />,
+          'Bubbs Corner Pub',
+          <Beer key="beer" />,
+          <Music key="music" />,
+          <Users key="users" />,
+        ]}
+        speed="slow"
+        direction="right"
+        className="bg-primary/10 text-white"
+      />
+
+      <div className="mx-auto max-w-[1400px] px-4 py-12 md:px-8 lg:px-16">
         {/* Main Footer Content */}
         <div className="flex flex-col items-center gap-8">
           {/* Animated Logo/Icon - Centered */}
