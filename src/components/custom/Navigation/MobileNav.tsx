@@ -56,7 +56,7 @@ export const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
                             key={subItem.id}
                             href={subItem.url}
                             onClick={onClose}
-                            className="block rounded-lg px-6 py-2 text-base font-medium uppercase tracking-wide text-neutral-200 transition-colors hover:bg-white/5 hover:text-white"
+                            className="cursor-pointer block rounded-lg px-6 py-2 text-base font-medium uppercase tracking-wide text-neutral-200 transition-colors hover:bg-white/5 hover:text-white"
                           >
                             {subItem.title}
                           </Link>
@@ -66,7 +66,7 @@ export const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
                       <Link
                         href={item.url}
                         onClick={onClose}
-                        className="block rounded-lg px-4 py-3 text-base font-semibold uppercase tracking-wide text-neutral-200 transition-colors hover:bg-white/5 hover:text-white"
+                        className="cursor-pointer block rounded-lg px-4 py-3 text-base font-semibold uppercase tracking-wide text-neutral-200 transition-colors hover:bg-white/5 hover:text-white"
                       >
                         {item.title}
                       </Link>
@@ -84,7 +84,7 @@ export const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
                   <Link
                     href={orderOnlineItem.url}
                     onClick={onClose}
-                    className="block rounded-lg bg-red-600 px-4 py-3 text-center text-base font-semibold uppercase tracking-wide text-white transition-colors hover:bg-red-700"
+                    className="cursor-pointer block rounded-lg bg-red-600 px-4 py-3 text-center text-base font-semibold uppercase tracking-wide text-white transition-colors hover:bg-red-700"
                   >
                     {orderOnlineItem.title}
                   </Link>

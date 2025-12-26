@@ -46,13 +46,13 @@ export const HeroSection = () => {
           href={contact.mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm tracking-[0.2em] text-white uppercase transition-opacity hover:opacity-80 md:text-base lg:text-lg"
+          className="cursor-pointer text-sm font-extrabold tracking-[0.2em] text-white uppercase transition-opacity hover:opacity-80 md:text-base lg:text-lg"
         >
           {contact.address.full}
         </a>
         <a
           href={phoneHref}
-          className="mt-2 text-sm tracking-[0.15em] text-white transition-opacity hover:opacity-80 md:text-base lg:text-lg"
+          className="cursor-pointer mt-2 text-sm font-extrabold tracking-[0.15em] text-white transition-opacity hover:opacity-80 md:text-base lg:text-lg"
         >
           {contact.phone}
         </a>

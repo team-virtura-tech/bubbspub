@@ -25,7 +25,10 @@ export const Navigation = () => {
     >
       <div className="flex w-full items-center justify-between px-4 py-3 md:px-6 md:py-4">
         {/* Logo */}
-        <Link href="/" className="relative h-14 w-14 shrink-0 md:h-16 md:w-16">
+        <Link
+          href="/"
+          className="cursor-pointer relative h-14 w-14 shrink-0 md:h-16 md:w-16"
+        >
           <Image
             src="/bubbs_logo_transparent.png"
             alt="Bubb's Corner Pub"
@@ -44,7 +47,7 @@ export const Navigation = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="flex h-10 w-10 items-center justify-center rounded text-white transition-colors hover:bg-white/10 lg:hidden"
+          className="cursor-pointer flex h-10 w-10 items-center justify-center rounded text-white transition-colors hover:bg-white/10 lg:hidden"
           aria-label="Toggle mobile menu"
           aria-expanded={isMobileMenuOpen}
         >

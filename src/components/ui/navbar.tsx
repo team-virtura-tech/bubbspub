@@ -28,7 +28,7 @@ const Menu = ({ list }: MenuProps) => {
               <li key={item.id} className={'relative'}>
                 <Link
                   className={`
-                    relative flex items-center justify-center rounded px-8 py-3 text-base font-semibold uppercase tracking-wide transition-all
+                    cursor-pointer relative flex items-center justify-center rounded px-8 py-3 text-base font-semibold uppercase tracking-wide transition-all
                     text-neutral-200 hover:bg-white/10
                     ${hovered === item?.id ? 'bg-white/10' : ''}
                   `}
@@ -69,7 +69,7 @@ const Menu = ({ list }: MenuProps) => {
                             key={`link-${nav?.id}`}
                             href={nav?.url}
                             className={`
-                              w-full px-6 py-4 text-base font-medium uppercase tracking-wide text-neutral-200 transition-colors
+                              cursor-pointer w-full px-6 py-4 text-base font-medium uppercase tracking-wide text-neutral-200 transition-colors
                               hover:bg-white/10 hover:text-white
                               ${index !== 0 ? 'border-t border-white/5' : ''}
                             `}

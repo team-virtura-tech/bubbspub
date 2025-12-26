@@ -104,7 +104,7 @@ export const CategoryNav = ({
                 key={category}
                 onClick={() => scrollToSection(category)}
                 className={cn(
-                  'relative shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 md:px-5 md:text-base',
+                  'cursor-pointer relative shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 md:px-5 md:text-base',
                   isActive
                     ? 'bg-brand text-white shadow-sm'
                     : 'bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground'

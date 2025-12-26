@@ -427,7 +427,7 @@ const BusinessDetailsSection = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-1.5 rounded-md bg-brand px-3 py-1.5 text-xs font-semibold text-white uppercase tracking-wider transition-all hover:bg-brand-hover"
+                  className="cursor-pointer inline-flex items-center gap-1.5 rounded-md bg-brand px-3 py-1.5 text-xs font-semibold text-white uppercase tracking-wider transition-all hover:bg-brand-hover"
                 >
                   Get Directions
                   <motion.svg
@@ -472,7 +472,7 @@ const BusinessDetailsSection = () => {
                   href={phoneHref}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-1.5 rounded-md bg-brand px-3 py-1.5 text-xs font-semibold text-white uppercase tracking-wider transition-all hover:bg-brand-hover"
+                  className="cursor-pointer inline-flex items-center gap-1.5 rounded-md bg-brand px-3 py-1.5 text-xs font-semibold text-white uppercase tracking-wider transition-all hover:bg-brand-hover"
                 >
                   Call Us
                   <motion.svg
@@ -538,7 +538,7 @@ const BusinessDetailsSection = () => {
                   href="mailto:info@bubbspub.com"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-1.5 rounded-md bg-brand px-3 py-1.5 text-xs font-semibold text-white uppercase tracking-wider transition-all hover:bg-brand-hover"
+                  className="cursor-pointer inline-flex items-center gap-1.5 rounded-md bg-brand px-3 py-1.5 text-xs font-semibold text-white uppercase tracking-wider transition-all hover:bg-brand-hover"
                 >
                   Send Email
                   <motion.svg
