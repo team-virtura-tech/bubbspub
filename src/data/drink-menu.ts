@@ -83,6 +83,7 @@ export const drinkMenu: DrinkMenuItem[] = [
     description: '',
     price: 5.5,
     category: 'beverages',
+    image: '/images/drinks/ginger_berry_cooler.png',
   },
   {
     id: 'arnold-palmer',
@@ -90,6 +91,7 @@ export const drinkMenu: DrinkMenuItem[] = [
     description: '',
     price: 3.5,
     category: 'beverages',
+    image: '/images/drinks/arnold_palmer.png',
   },
   {
     id: 'iced-tea',
@@ -97,6 +99,7 @@ export const drinkMenu: DrinkMenuItem[] = [
     description: 'Free refills',
     price: 3.75,
     category: 'beverages',
+    image: '/images/drinks/iced_tea.png',
   },
   {
     id: 'milk',
@@ -104,6 +107,7 @@ export const drinkMenu: DrinkMenuItem[] = [
     description: 'Reg, Chocolate',
     price: 4,
     category: 'beverages',
+    image: '/images/drinks/milk.png',
   },
   {
     id: 'red-bull',
@@ -111,6 +115,7 @@ export const drinkMenu: DrinkMenuItem[] = [
     description: 'Reg, sugar free, blue edition, yellow edition, coconut berry',
     price: 5.5,
     category: 'beverages',
+    image: '/images/drinks/red_bull.png',
   },
   {
     id: 'coffee',
@@ -118,6 +123,7 @@ export const drinkMenu: DrinkMenuItem[] = [
     description: '',
     price: 4.5,
     category: 'beverages',
+    image: '/images/drinks/coffee.png',
   },
   {
     id: 'fiji-water',
@@ -125,6 +131,7 @@ export const drinkMenu: DrinkMenuItem[] = [
     description: '',
     price: 5.5,
     category: 'beverages',
+    image: '/images/drinks/fiji_water.png',
   },
   {
     id: 'jarritos',
@@ -132,6 +139,7 @@ export const drinkMenu: DrinkMenuItem[] = [
     description: 'Fruit Punch, Mandarin, Pineapple',
     price: 3.5,
     category: 'beverages',
+    image: '/images/drinks/jarritos.png',
   },
   {
     id: 'coconut-water',
@@ -139,6 +147,7 @@ export const drinkMenu: DrinkMenuItem[] = [
     description: '',
     price: 4,
     category: 'beverages',
+    image: '/images/drinks/coconut_water.png',
   },
   {
     id: 'summer-tea',
@@ -297,6 +306,7 @@ export const drinkMenu: DrinkMenuItem[] = [
       'SOBIESKI LEMON, COINTREU, SWEET & SOUR MIX, LEMON JUICE, LEMON GARNISH, WHIPPED CREAM FOAM',
     price: 11,
     category: 'cocktails',
+    image: '/images/drinks/cocktails/lemon_drop_martini.png',
   },
   {
     id: 'make-it-dirty',
@@ -349,6 +359,7 @@ export const drinkMenu: DrinkMenuItem[] = [
     description: 'Rhône Bend, OR, 2007',
     price: 8,
     category: 'white-wine',
+    image: '/images/drinks/white_wine/cowhorn_biodynamic.png',
   },
   {
     id: 'saviah-cellars-sauvignon-blanc',
@@ -356,6 +367,7 @@ export const drinkMenu: DrinkMenuItem[] = [
     description: 'Semillon, WA 2008',
     price: 8,
     category: 'white-wine',
+    image: '/images/drinks/white_wine/saviah_cellars_sauvignon_blanc.png',
   },
   {
     id: 'cousino-macul-sauvignon-gris',
@@ -363,6 +375,7 @@ export const drinkMenu: DrinkMenuItem[] = [
     description: 'Chile 2007',
     price: 7,
     category: 'white-wine',
+    image: '/images/drinks/white_wine/cousino_macul_sauvignon_gris.png',
   },
   {
     id: 'fess-parker-syrah',
@@ -370,6 +383,7 @@ export const drinkMenu: DrinkMenuItem[] = [
     description: 'Napa, CA 2004',
     price: 8,
     category: 'red-wine',
+    image: '/images/drinks/red_wine/fess_parker_syrah.png',
   },
   {
     id: 'meandro',
@@ -377,6 +391,7 @@ export const drinkMenu: DrinkMenuItem[] = [
     description: 'Douro, Portugal 2005',
     price: 9,
     category: 'red-wine',
+    image: '/images/drinks/red_wine/meandro.png',
   },
   {
     id: 'steele-pacini-zinfandel',
@@ -384,5 +399,6 @@ export const drinkMenu: DrinkMenuItem[] = [
     description: 'Sonoma, CA 2006',
     price: 8,
     category: 'red-wine',
+    image: '/images/drinks/red_wine/steele_pacini_zinfandel.png',
   },
 ];
