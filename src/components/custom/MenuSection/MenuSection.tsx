@@ -38,7 +38,7 @@ export const MenuSection = ({ id, className, section }: MenuSectionProps) => {
             {section.category}
           </h2>
           {section.description && (
-            <p className="mt-2 text-sm text-muted-foreground md:text-base">
+            <p className="mt-2 whitespace-pre-line text-sm text-muted-foreground md:text-base">
               {section.description}
             </p>
           )}
