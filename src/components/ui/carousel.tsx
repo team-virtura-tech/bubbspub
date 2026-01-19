@@ -108,7 +108,8 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
                       alt={item.name}
                       className="w-full h-[28rem] sm:h-[36rem] md:h-[40rem] object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent p-4 flex flex-col justify-between text-white">
+                    {/* to make the images a bit darker: inset-0 bg-gradient-to-t from-black/50 to-transparent */}
+                    <div className="absolute  p-4 flex flex-col justify-between text-white">
                       <div>
                         <h3 className="text-xs font-bold uppercase tracking-wider">
                           {item.name}
