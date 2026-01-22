@@ -97,7 +97,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
           {items.map((item) => (
             <div
               key={item.id}
-              className="shrink-0 w-80 sm:w-96 md:w-[28rem] lg:w-[32rem] snap-start"
+              className="shrink-0 w-56 sm:w-64 md:w-72 lg:w-80 snap-start"
             >
               {
                 /* Carousel Card */
@@ -106,7 +106,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
                     <img
                       src={item.imageSrc}
                       alt={item.name}
-                      className="w-full h-[28rem] sm:h-[36rem] md:h-[40rem] object-cover"
+                      className="w-full h-72 sm:h-80 md:h-96 object-cover"
                     />
                     {/* to make the images a bit darker: inset-0 bg-gradient-to-t from-black/50 to-transparent */}
                     <div className="absolute  p-4 flex flex-col justify-between text-white">
