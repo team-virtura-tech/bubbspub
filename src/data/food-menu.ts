@@ -70,6 +70,7 @@ export const foodMenu: FoodMenuItem[] = [
     description: 'Guiness BBQ pulled pork, coleslaw, pickles, onion tanglers',
     price: 16,
     category: 'shareables',
+    image: '/images/menuPage/heroSection.jpg',
   },
   {
     id: 'chicken-sliders-3ct',
