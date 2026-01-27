@@ -29,11 +29,6 @@ export const navigationItems: NavigationItem[] = [
         url: '/menu/daily-special',
       },
       {
-        id: 14,
-        title: 'Menu 1',
-        url: '/menu/menu-1',
-      },
-      {
         id: 15,
         title: 'Online Order',
         url: '/order-online',
