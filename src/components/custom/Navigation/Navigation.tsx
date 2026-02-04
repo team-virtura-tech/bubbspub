@@ -20,7 +20,7 @@ export const Navigation = () => {
       data-component="Navigation"
       className={cn(
         'fixed left-0 right-0 top-0 z-50 transition-colors duration-300',
-        isMobileMenuOpen ? 'bg-black' : 'bg-black/30 backdrop-blur-md'
+        isMobileMenuOpen ? 'bg-black' : 'bg-zinc-950 '
       )}
     >
       <div className="flex w-full items-center justify-between px-4 py-3 md:px-6 md:py-4">

@@ -1,11 +1,12 @@
 import { EventsHeroSection } from '@/components/custom/EventsHeroSection';
+import { FEATURES } from '@/lib/config';
 
 export default function EventsPage() {
   const events: never[] = [];
 
   return (
     <div>
-      <EventsHeroSection />
+      {FEATURES.showEventsHeroSection && <EventsHeroSection />}
       <section
         id="EventsList"
         data-component="EventsList"

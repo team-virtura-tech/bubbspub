@@ -26,6 +26,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { contact } from '@/data/contact';
+import { FEATURES } from '@/lib/config';
 
 import { InteractiveMap } from './InteractiveMap';
 
@@ -403,8 +404,11 @@ const BusinessDetailsSection = () => {
     >
       <Card className="h-full border-white/20 bg-zinc-900/90 backdrop-blur-sm">
         <CardHeader className="pb-4">
+          <span className="mb-1 block text-xs tracking-[0.3em] text-brand uppercase">
+            Find Us
+          </span>
           <CardTitle className="text-2xl font-bold text-white uppercase tracking-tight">
-            Get in Touch
+            Visit Our Location
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -571,69 +575,58 @@ const BusinessDetailsSection = () => {
 };
 
 // Map Component (standalone, no section wrapper)
-const ContactMap = ({ showTitle = false }: { showTitle?: boolean }) => {
+const ContactMap = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <div ref={ref} className="w-full">
-      {showTitle && (
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8 }}
-          className="mb-8 text-center"
-        >
-          <span className="mb-2 block text-sm tracking-[0.3em] text-brand uppercase">
-            Find Us
-          </span>
-          <h2 className="text-3xl font-bold text-white uppercase tracking-tight md:text-4xl lg:text-5xl">
-            Visit Our Location
-          </h2>
-        </motion.div>
-      )}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-        transition={{ duration: 0.8, delay: showTitle ? 0.2 : 0 }}
-      >
-        <InteractiveMap height="h-[400px] md:h-[500px] lg:h-[600px]" />
-      </motion.div>
-    </div>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.8 }}
+      className="h-full w-full"
+    >
+      <InteractiveMap height="h-full min-h-[400px] md:min-h-[500px]" />
+    </motion.div>
   );
 };
 
 // Main Contact Page Component
 const ContactUsPage = () => {
   return (
-    <main>
-      <ContactHeroSection />
+    <main
+      className={
+        !FEATURES.showContactHeroSection ? 'bg-zinc-950 pt-24 md:pt-28' : ''
+      }
+    >
+      {FEATURES.showContactHeroSection && <ContactHeroSection />}
 
-      {/* Business Details and Form - Side by side on large screens */}
-      <section className="bg-zinc-950 px-4 py-16 md:px-8 lg:py-20">
+      {/* Map and Business Details - Side by side on large screens */}
+      <section className="bg-zinc-950 px-4 py-8 md:px-8 lg:py-12">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12 lg:items-stretch">
-            {/* Business Details - Left side on large screens */}
+            {/* Interactive Map - Left side on large screens */}
             <div className="flex">
-              <BusinessDetailsSection />
+              <ContactMap />
             </div>
 
-            {/* Contact Form - Right side on large screens */}
+            {/* Business Details - Right side on large screens */}
             <div className="flex">
-              <div className="w-full">
-                <ContactForm />
-              </div>
+              <BusinessDetailsSection />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Interactive Map - Full width at bottom */}
-      <section className="bg-zinc-950 px-4 py-16 md:px-8 lg:py-20">
-        <div className="mx-auto max-w-7xl">
-          <ContactMap showTitle={true} />
-        </div>
-      </section>
+      {/* Contact Form - Full width below */}
+      {FEATURES.showContactForm && (
+        <section className="bg-zinc-950 px-4 py-8 md:px-8 lg:py-12">
+          <div className="mx-auto max-w-3xl">
+            <ContactForm />
+          </div>
+        </section>
+      )}
     </main>
   );
 };

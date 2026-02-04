@@ -1,6 +1,15 @@
 'use client';
 
 import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
+import {
+  ArrowDown,
+  ArrowRight,
+  MapPin,
+  PlayCircle,
+  Sparkles,
+  Users,
+  UtensilsCrossed,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
@@ -43,7 +52,7 @@ const AboutHeroSection = () => {
     <section className="relative h-[70vh] min-h-[500px] w-full overflow-hidden">
       {/* Background Image */}
       <Image
-        src="/images/landingPage/heroSection/heroSection1.jpg"
+        src="/images/landingPage/heroSection/heroSection4.png"
         alt="Bubbs Corner Pub interior"
         fill
         priority
@@ -91,19 +100,7 @@ const AboutHeroSection = () => {
         }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
-        <svg
-          className="h-8 w-8 text-white/60"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
+        <ArrowDown className="h-8 w-8 text-white/60" />
       </motion.div>
     </section>
   );
@@ -239,87 +236,25 @@ const PillarsSection = () => {
 
   const pillars = [
     {
-      icon: (
-        <svg
-          className="h-10 w-10"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-          />
-        </svg>
-      ),
+      icon: <Users className="h-10 w-10" strokeWidth={1.5} />,
       title: 'Community',
       description:
         'A welcoming space where neighbors become friends and every visit feels like coming home.',
     },
     {
-      icon: (
-        <svg
-          className="h-10 w-10"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-      ),
+      icon: <UtensilsCrossed className="h-10 w-10" strokeWidth={1.5} />,
       title: 'Elevated Comfort Food',
       description:
         'From sizzling wings to loaded nachos, our kitchen serves up familiar favorites with exceptional quality.',
     },
     {
-      icon: (
-        <svg
-          className="h-10 w-10"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-          />
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-      ),
+      icon: <PlayCircle className="h-10 w-10" strokeWidth={1.5} />,
       title: 'Game Day Ready',
       description:
         'Big-screen TVs, spirited atmosphere, and the perfect drinks to fuel your team spirit.',
     },
     {
-      icon: (
-        <svg
-          className="h-10 w-10"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-          />
-        </svg>
-      ),
+      icon: <Sparkles className="h-10 w-10" strokeWidth={1.5} />,
       title: 'Unforgettable Nights',
       description:
         'Craft beers, refreshing cocktails, and an energy that makes every visit memorable.',
@@ -500,25 +435,16 @@ const KitchenSection = () => {
                 className="group inline-flex items-center gap-3 rounded-md border-2 border-brand bg-brand px-8 py-4 font-semibold tracking-wider text-white uppercase transition-all duration-300 hover:border-brand-hover hover:bg-brand-hover"
               >
                 Explore Our Menu
-                <motion.svg
+                <motion.span
                   animate={{ x: [0, 4, 0] }}
                   transition={{
                     duration: 1.5,
                     repeat: Infinity,
                     ease: [0.42, 0, 0.58, 1],
                   }}
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </motion.svg>
+                  <ArrowRight className="h-5 w-5" />
+                </motion.span>
               </Link>
             </motion.div>
           </motion.div>
@@ -593,29 +519,20 @@ const DrinksSection = () => {
 
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
-                href="/menu"
+                href="/drinks"
                 className="group inline-flex items-center gap-3 rounded-md border-2 border-white/20 bg-transparent px-8 py-4 font-semibold tracking-wider text-white uppercase transition-all duration-300 hover:border-brand hover:bg-brand"
               >
                 View Drink Menu
-                <motion.svg
+                <motion.span
                   animate={{ x: [0, 4, 0] }}
                   transition={{
                     duration: 1.5,
                     repeat: Infinity,
                     ease: [0.42, 0, 0.58, 1],
                   }}
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </motion.svg>
+                  <ArrowRight className="h-5 w-5" />
+                </motion.span>
               </Link>
             </motion.div>
           </motion.div>
@@ -810,25 +727,7 @@ const VisitSection = () => {
               rel="noopener noreferrer"
               className="cursor-pointer inline-flex items-center gap-2 rounded-md border-2 border-brand bg-brand px-8 py-4 font-semibold tracking-wider text-white uppercase transition-all duration-300 hover:border-brand-hover hover:bg-brand-hover"
             >
-              <svg
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-              </svg>
+              <MapPin className="h-5 w-5" />
               Get Directions
             </motion.a>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
