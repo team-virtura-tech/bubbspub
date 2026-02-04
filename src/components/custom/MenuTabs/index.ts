@@ -1,1 +1,0 @@
-export { MenuTabs } from './MenuTabs';

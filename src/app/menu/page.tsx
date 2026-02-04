@@ -4,6 +4,7 @@ import { MenuSection } from '@/components/custom/MenuSection';
 import { NoticesSection } from '@/components/custom/NoticesSection';
 import { getAllMenuCategories, getAllMenuSections } from '@/data/menu';
 import { menuNotices } from '@/data/notices';
+import { FEATURES } from '@/lib/config';
 
 export default function MenuPage() {
   const categories = getAllMenuCategories();
@@ -11,7 +12,7 @@ export default function MenuPage() {
 
   return (
     <div>
-      <MenuHeroSection />
+      {FEATURES.showMenuHeroSection && <MenuHeroSection />}
       <CategoryNav categories={categories} />
 
       {/* Menu Sections */}
