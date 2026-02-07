@@ -19,7 +19,7 @@ export const HeroSection = () => {
 
   // Use Framer Motion's useScroll for performant parallax (no re-renders)
   const { scrollY } = useScroll();
-  const parallaxY = useTransform(scrollY, (value) => value * 0.5);
+  const parallaxY = useTransform(scrollY, (value) => value * 0.2); // slower = smoother
 
   // Parallax offset: image moves at 0.5x scroll speed (only if motion enabled)
   const parallaxOffset = reduce ? 0 : parallaxY;
@@ -32,10 +32,7 @@ export const HeroSection = () => {
     >
       {/* Background Image with Parallax */}
       <motion.div
-        className="absolute inset-0"
-        initial={reduce ? false : { scale: 1.1 }}
-        animate={reduce ? {} : { scale: 1.0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
+        className="absolute inset-0 will-change-transform"
         style={{
           y: parallaxOffset,
         }}
@@ -47,7 +44,7 @@ export const HeroSection = () => {
           priority
           className="object-cover object-center"
           sizes="100vw"
-          quality={100}
+          quality={90}
         />
       </motion.div>
 
