@@ -1,11 +1,12 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Lottie from 'lottie-react';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type React from 'react';
+import { useEffect, useState } from 'react';
 
 import plateForkKnifeAnimation from '@/../public/icons/animated/plate-fork-knife-hover-pinch.json';
 import scooterAnimation from '@/../public/icons/animated/scooter-hover-pinch.json';
@@ -91,8 +92,38 @@ const cardVariants = {
   },
 };
 
+const wordVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+  },
+};
+
 export const WelcomeSection = () => {
   const componentName = 'WelcomeSection';
+  const reduce = useReducedMotion();
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    if (reduce) return;
+
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [reduce]);
+
+  // Parallax speeds for each card (slower, normal, faster)
+  const getParallaxOffset = (speed: number) => {
+    if (reduce) return 0;
+    // Start parallax after hero section (roughly after 100vh)
+    const sectionStart = typeof window !== 'undefined' ? window.innerHeight : 0;
+    const offset = scrollY - sectionStart;
+    return offset > 0 ? offset * speed * 0.15 : 0;
+  };
 
   return (
     <section
@@ -107,23 +138,61 @@ export const WelcomeSection = () => {
 
       <div className="relative mx-auto max-w-[1400px]">
         {/* Header Section */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
-        >
+        <div className="mb-16 text-center">
           <h2 className="mb-6 text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
-            <span className="block font-heading uppercase">Welcome to</span>
-            <span className="mt-2 block font-heading text-white">
-              Bubb&apos;s Corner Pub
-            </span>
+            <motion.span
+              className="block font-heading uppercase"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ staggerChildren: 0.08, delayChildren: 0.1 }}
+            >
+              {['Welcome', 'to'].map((word, i) => (
+                <motion.span
+                  key={i}
+                  variants={wordVariants}
+                  transition={{ duration: 0.5 }}
+                  className="inline-block mr-3"
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </motion.span>
+            <motion.span
+              className="mt-2 block font-heading text-white"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ staggerChildren: 0.08, delayChildren: 0.4 }}
+            >
+              {["Bubb's", 'Corner', 'Pub'].map((word, i) => (
+                <motion.span
+                  key={i}
+                  variants={wordVariants}
+                  transition={{ duration: 0.5 }}
+                  className="inline-block mr-3"
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </motion.span>
           </h2>
 
-          <div className="mx-auto mb-8 h-1 w-40 bg-gradient-to-r from-transparent via-brand to-transparent" />
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="mx-auto mb-8 h-1 w-40 bg-gradient-to-r from-transparent via-brand to-transparent"
+          />
 
-          <p className="mx-auto max-w-4xl text-lg leading-relaxed text-white md:text-xl">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 1.0 }}
+            className="mx-auto max-w-4xl text-lg leading-relaxed text-white md:text-xl"
+          >
             At{' '}
             <span className="font-semibold text-white">
               Bubb&apos;s Corner Pub
@@ -146,8 +215,8 @@ export const WelcomeSection = () => {
               elevated comfort food
             </span>{' '}
             that fuels good times and great memories.
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
 
         {/* Feature Cards Grid */}
         <motion.div
@@ -158,7 +227,13 @@ export const WelcomeSection = () => {
           className="grid grid-cols-1 gap-6 md:grid-cols-3"
         >
           {featureCards.map((card, index) => (
-            <motion.div key={card.title} variants={cardVariants}>
+            <motion.div
+              key={card.title}
+              variants={cardVariants}
+              style={{
+                y: reduce ? 0 : getParallaxOffset([0.8, 1.0, 1.2][index]),
+              }}
+            >
               <Card className="group relative h-full overflow-hidden border-0 bg-stone-900/30 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl hover:shadow-brand/20">
                 {/* Image Container */}
                 <div className="relative aspect-4/3 w-full overflow-hidden">
