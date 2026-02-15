@@ -4,7 +4,7 @@ import type React from 'react';
 
 import { Footer } from '@/components/custom/Footer';
 import { Navigation } from '@/components/custom/Navigation';
-import { OrderOnlineButton } from '@/components/custom/OrderOnline';
+// import { OrderOnlineButton } from '@/components/custom/OrderOnline';
 import './globals.css';
 
 const oswald = Oswald({
@@ -22,8 +22,61 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: 'Bubbs Pub',
-  description: 'Bar & Restaurant',
+  title: {
+    default: "Bubbs Pub - South Elgin's Premier Sports Bar & Restaurant",
+    template: '%s | Bubbs Pub',
+  },
+  description:
+    'Experience Great Food, Drinks, and Atmosphere at Bubbs Pub in South Elgin. The perfect spot for sports, family dinners, and night outs.',
+  metadataBase: new URL('https://bubbspub.com'),
+  openGraph: {
+    title: "Bubbs Pub - South Elgin's Premier Sports Bar & Restaurant",
+    description:
+      'Experience Great Food, Drinks, and Atmosphere at Bubbs Pub in South Elgin. The perfect spot for sports, family dinners, and night outs.',
+    url: 'https://bubbspub.com',
+    siteName: 'Bubbs Pub',
+    locale: 'en_US',
+    type: 'website',
+  },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Restaurant',
+  name: "Bubb's Corner Pub",
+  image: 'https://bubbspub.com',
+  '@id': 'https://bubbspub.com',
+  url: 'https://bubbspub.com',
+  telephone: '+1-224-238-3168',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '335 N McLean Blvd',
+    addressLocality: 'South Elgin',
+    addressRegion: 'IL',
+    postalCode: '60177',
+    addressCountry: 'US',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 41.9936,
+    longitude: -88.2917,
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      opens: '11:00',
+      closes: '01:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Sunday', 'Monday', 'Tuesday'],
+      opens: '11:00',
+      closes: '23:00',
+    },
+  ],
+  servesCuisine: ['American', 'Bar Food'],
+  priceRange: '$$',
 };
 
 export default function RootLayout({
@@ -34,10 +87,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${oswald.variable} ${lato.variable} antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Navigation />
         {children}
         <Footer />
-        <OrderOnlineButton />
+        {/* <OrderOnlineButton /> */}
       </body>
     </html>
   );

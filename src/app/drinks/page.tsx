@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+
 import { CategoryNav } from '@/components/custom/CategoryNav';
 import { DrinksHeroSection } from '@/components/custom/DrinksHeroSection';
 import { MenuSection } from '@/components/custom/MenuSection';
@@ -6,6 +8,12 @@ import { Carousel } from '@/components/ui/carousel';
 import { drinkCategories, drinkMenu } from '@/data/drink-menu';
 import { menuNotices } from '@/data/notices';
 import { FEATURES } from '@/lib/config';
+
+export const metadata: Metadata = {
+  title: 'Drink Menu',
+  description:
+    'View our selection of craft beers, cocktails, and refreshing drinks.',
+};
 
 export default function DrinksPage() {
   // Build categories array for nav (menu-style layout)

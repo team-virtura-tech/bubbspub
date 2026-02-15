@@ -351,104 +351,72 @@ const KitchenSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
-  const imageVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 1,
-      },
-    },
-  };
-
   const contentVariants = {
-    hidden: { opacity: 0, x: 50 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: {
         duration: 1,
-        delay: 0.2,
       },
     },
   };
 
   return (
-    <section ref={ref} className="relative overflow-hidden bg-black">
-      <div className="grid min-h-[600px] grid-cols-1 lg:grid-cols-2">
-        {/* Image Side */}
+    <section ref={ref} className="bg-black px-4 py-20 md:px-8 lg:py-28">
+      <div className="mx-auto max-w-4xl">
         <motion.div
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          variants={imageVariants}
-          className="relative min-h-[400px] lg:min-h-full"
+          variants={contentVariants}
+          className="text-center"
         >
-          <Image
-            src="/images/landingPage/heroSection/heroSection.jpg"
-            alt="Kitchen and food at Bubbs"
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
-          <div className="absolute inset-0 bg-linear-to-r from-transparent to-black/50 lg:bg-linear-to-l lg:from-black/80 lg:to-transparent" />
-        </motion.div>
+          <span className="mb-2 block text-sm tracking-[0.3em] text-brand uppercase">
+            From Our Kitchen
+          </span>
+          <h2 className="mb-6 text-3xl font-bold text-white uppercase tracking-tight md:text-4xl">
+            Flavor That Fuels the Game
+          </h2>
 
-        {/* Content Side */}
-        <div className="flex items-center px-8 py-16 lg:px-16 lg:py-24">
-          <motion.div
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-            variants={contentVariants}
-            className="max-w-xl"
-          >
-            <span className="mb-2 block text-sm tracking-[0.3em] text-brand uppercase">
-              From Our Kitchen
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-white uppercase tracking-tight md:text-4xl">
-              Flavor That Fuels the Game
-            </h2>
+          <p className="mb-6 text-lg text-white/80 leading-relaxed">
+            From the moment you walk in, you&apos;re welcomed by the aroma of
+            elevated comfort food—
+            <span className="font-semibold text-white">
+              sizzling wings
+            </span>,{' '}
+            <span className="font-semibold text-white">loaded nachos</span>,{' '}
+            <span className="font-semibold text-white">golden pretzels</span>,{' '}
+            <span className="font-semibold text-white">hearty burgers</span>,
+            and{' '}
+            <span className="font-semibold text-white">rich flatbreads</span>{' '}
+            straight from our kitchen.
+          </p>
 
-            <p className="mb-6 text-white/80 leading-relaxed">
-              From the moment you walk in, you&apos;re welcomed by the aroma of
-              elevated comfort food—
-              <span className="font-semibold text-white">
-                sizzling wings
-              </span>,{' '}
-              <span className="font-semibold text-white">loaded nachos</span>,{' '}
-              <span className="font-semibold text-white">golden pretzels</span>,{' '}
-              <span className="font-semibold text-white">hearty burgers</span>,
-              and{' '}
-              <span className="font-semibold text-white">rich flatbreads</span>{' '}
-              straight from our kitchen.
-            </p>
+          <p className="mb-8 text-lg text-white/80 leading-relaxed">
+            Our menu is crafted to fuel the energy of cheering fans and satisfy
+            satisfy ilooking for a casual night out, with quality ingredi
+            ingredientsents that are both familiar and full of flavor.
+          </p>
 
-            <p className="mb-8 text-white/80 leading-relaxed">
-              Our menu is crafted to fuel the energy of cheering fans and
-              satisfy families looking for a casual night out, with quality
-              ingredients and dishes that are both familiar and full of flavor.
-            </p>
-
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link
-                href="/menu"
-                className="group inline-flex items-center gap-3 rounded-md border-2 border-brand bg-brand px-8 py-4 font-semibold tracking-wider text-white uppercase transition-all duration-300 hover:border-brand-hover hover:bg-brand-hover"
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link
+              href="/menu"
+              className="group inline-flex items-center gap-3 rounded-md border-2 border-brand bg-brand px-8 py-4 font-semibold tracking-wider text-white uppercase transition-all duration-300 hover:border-brand-hover hover:bg-brand-hover"
+            >
+              Explore Our Menu
+              <motion.span
+                animate={{ x: [0, 4, 0] }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: [0.42, 0, 0.58, 1],
+                }}
               >
-                Explore Our Menu
-                <motion.span
-                  animate={{ x: [0, 4, 0] }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    ease: [0.42, 0, 0.58, 1],
-                  }}
-                >
-                  <ArrowRight className="h-5 w-5" />
-                </motion.span>
-              </Link>
-            </motion.div>
+                <ArrowRight className="h-5 w-5" />
+              </motion.span>
+            </Link>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -460,99 +428,67 @@ const DrinksSection = () => {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   const contentVariants = {
-    hidden: { opacity: 0, x: -50 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: {
         duration: 1,
-      },
-    },
-  };
-
-  const imageVariants = {
-    hidden: { opacity: 0, x: 50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 1,
-        delay: 0.2,
       },
     },
   };
 
   return (
-    <section ref={ref} className="relative overflow-hidden bg-zinc-950">
-      <div className="grid min-h-[600px] grid-cols-1 lg:grid-cols-2">
-        {/* Content Side */}
-        <div className="order-2 flex items-center px-8 py-16 lg:order-1 lg:px-16 lg:py-24">
-          <motion.div
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-            variants={contentVariants}
-            className="max-w-xl"
-          >
-            <span className="mb-2 block text-sm tracking-[0.3em] text-brand uppercase">
-              At the Bar
-            </span>
-            <h2 className="mb-6 text-3xl font-bold text-white uppercase tracking-tight md:text-4xl">
-              Cheers to Good Times
-            </h2>
-
-            <p className="mb-6 text-white/80 leading-relaxed">
-              No pub experience is complete without a great drink in hand. At
-              Bubb&apos;s, we pour a wide selection of{' '}
-              <span className="font-semibold text-white">craft beers</span>,{' '}
-              <span className="font-semibold text-white">pub staples</span>, and{' '}
-              <span className="font-semibold text-white">
-                refreshing cocktails
-              </span>{' '}
-              designed to complement every meal and every game.
-            </p>
-
-            <p className="mb-8 text-white/80 leading-relaxed">
-              Pair that with our big-screen TVs, friendly staff, and spirited
-              atmosphere, and you have the recipe for unforgettable nights in
-              South Elgin.
-            </p>
-
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link
-                href="/drinks"
-                className="group inline-flex items-center gap-3 rounded-md border-2 border-white/20 bg-transparent px-8 py-4 font-semibold tracking-wider text-white uppercase transition-all duration-300 hover:border-brand hover:bg-brand"
-              >
-                View Drink Menu
-                <motion.span
-                  animate={{ x: [0, 4, 0] }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    ease: [0.42, 0, 0.58, 1],
-                  }}
-                >
-                  <ArrowRight className="h-5 w-5" />
-                </motion.span>
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-
-        {/* Image Side */}
+    <section ref={ref} className="bg-zinc-950 px-4 py-20 md:px-8 lg:py-28">
+      <div className="mx-auto max-w-4xl">
         <motion.div
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          variants={imageVariants}
-          className="relative order-1 min-h-[400px] lg:order-2 lg:min-h-full"
+          variants={contentVariants}
+          className="text-center"
         >
-          <Image
-            src="/images/landingPage/heroSection/heroSection2.jpg"
-            alt="Bar and drinks at Bubbs"
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
-          <div className="absolute inset-0 bg-linear-to-l from-transparent to-black/50 lg:bg-linear-to-r lg:from-black/80 lg:to-transparent" />
+          <span className="mb-2 block text-sm tracking-[0.3em] text-brand uppercase">
+            At the Bar
+          </span>
+          <h2 className="mb-6 text-3xl font-bold text-white uppercase tracking-tight md:text-4xl">
+            Cheers to Good Times
+          </h2>
+
+          <p className="mb-6 text-lg text-white/80 leading-relaxed">
+            No pub experience is complete without a great drink in hand. At
+            Bubb&apos;s, we pour a wide selection of{' '}
+            <span className="font-semibold text-white">craft beers</span>,{' '}
+            <span className="font-semibold text-white">pub staples</span>, and{' '}
+            <span className="font-semibold text-white">
+              refreshing cocktails
+            </span>{' '}
+            designed to complement every meal and every game.
+          </p>
+
+          <p className="mb-8 text-lg text-white/80 leading-relaxed">
+            Pair that with our big-screen TVs, friendly staff, and spirited
+            atmosphere, and you have the recipe for unforgettable nights in
+            South Elgin.
+          </p>
+
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link
+              href="/drinks"
+              className="group inline-flex items-center gap-3 rounded-md border-2 border-white/20 bg-transparent px-8 py-4 font-semibold tracking-wider text-white uppercase transition-all duration-300 hover:border-brand hover:bg-brand"
+            >
+              View Drink Menu
+              <motion.span
+                animate={{ x: [0, 4, 0] }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: [0.42, 0, 0.58, 1],
+                }}
+              >
+                <ArrowRight className="h-5 w-5" />
+              </motion.span>
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>
