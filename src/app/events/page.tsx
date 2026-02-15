@@ -1,5 +1,13 @@
+import type { Metadata } from 'next';
+
 import { EventsHeroSection } from '@/components/custom/EventsHeroSection';
 import { FEATURES } from '@/lib/config';
+
+export const metadata: Metadata = {
+  title: 'Events',
+  description:
+    'Join us for upcoming events, live music, and game day parties at Bubbs Pub.',
+};
 
 export default function EventsPage() {
   const events: never[] = [];

@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+
 import { CategoryNav } from '@/components/custom/CategoryNav';
 import { MenuHeroSection } from '@/components/custom/MenuHeroSection';
 import { MenuSection } from '@/components/custom/MenuSection';
@@ -5,6 +7,12 @@ import { NoticesSection } from '@/components/custom/NoticesSection';
 import { getAllMenuCategories, getAllMenuSections } from '@/data/menu';
 import { menuNotices } from '@/data/notices';
 import { FEATURES } from '@/lib/config';
+
+export const metadata: Metadata = {
+  title: 'Menu',
+  description:
+    'Explore our menu of elevated comfort food, burgers, wings, and more.',
+};
 
 export default function MenuPage() {
   const categories = getAllMenuCategories();

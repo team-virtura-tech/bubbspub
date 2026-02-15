@@ -28,11 +28,11 @@ export const navigationItems: NavigationItem[] = [
         title: 'Daily Special',
         url: '/menu/daily-special',
       },
-      {
-        id: 15,
-        title: 'Online Order',
-        url: '/order-online',
-      },
+      // {
+      //   id: 15,
+      //   title: 'Online Order',
+      //   url: '/order-online',
+      // },
     ],
   },
   {
