@@ -1,9 +1,10 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Lato, Oswald } from 'next/font/google';
 import type React from 'react';
 
 import { Footer } from '@/components/custom/Footer';
 import { Navigation } from '@/components/custom/Navigation';
+import { SITE_NAME, SITE_URL } from '@/lib/config';
 // import { OrderOnlineButton } from '@/components/custom/OrderOnline';
 import './globals.css';
 
@@ -21,22 +22,42 @@ const lato = Lato({
   display: 'swap',
 });
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#dc2626',
+};
+
 export const metadata: Metadata = {
   title: {
     default: "Bubbs Pub - South Elgin's Premier Sports Bar & Restaurant",
-    template: '%s | Bubbs Pub',
+    template: `%s | ${SITE_NAME}`,
   },
   description:
     'Experience Great Food, Drinks, and Atmosphere at Bubbs Pub in South Elgin. The perfect spot for sports, family dinners, and night outs.',
-  metadataBase: new URL('https://bubbspub.com'),
+  metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: '/',
+  },
+  icons: {
+    icon: '/favicon.ico',
+  },
   openGraph: {
     title: "Bubbs Pub - South Elgin's Premier Sports Bar & Restaurant",
     description:
       'Experience Great Food, Drinks, and Atmosphere at Bubbs Pub in South Elgin. The perfect spot for sports, family dinners, and night outs.',
-    url: 'https://bubbspub.com',
-    siteName: 'Bubbs Pub',
+    url: SITE_URL,
+    siteName: SITE_NAME,
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/images/landingPage/heroSection/heroSection4.png',
+        width: 1200,
+        height: 630,
+        alt: "Bubbs Pub - South Elgin's Premier Sports Bar & Restaurant",
+      },
+    ],
   },
 };
 
@@ -44,10 +65,12 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Restaurant',
   name: "Bubb's Corner Pub",
-  image: 'https://bubbspub.com',
-  '@id': 'https://bubbspub.com',
-  url: 'https://bubbspub.com',
+  image: `${SITE_URL}/images/landingPage/heroSection/heroSection4.png`,
+  '@id': SITE_URL,
+  url: SITE_URL,
   telephone: '+1-224-238-3168',
+  menu: `${SITE_URL}/menu`,
+  acceptsReservations: false,
   address: {
     '@type': 'PostalAddress',
     streetAddress: '335 N McLean Blvd',
