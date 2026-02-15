@@ -1,4 +1,10 @@
 /**
+ * Site-wide constants.
+ */
+export const SITE_URL = 'https://bubbspub.com';
+export const SITE_NAME = 'Bubbs Pub';
+
+/**
  * Feature flags for the application.
  * Toggle features on/off during development or for A/B testing.
  */
