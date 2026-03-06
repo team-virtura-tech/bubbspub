@@ -1,7 +1,5 @@
 import type { Metadata } from 'next';
-
-import { EventsHeroSection } from '@/components/custom/EventsHeroSection';
-import { FEATURES } from '@/lib/config';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Events',
@@ -9,29 +7,51 @@ export const metadata: Metadata = {
     'Join us for upcoming events, live music, and game day parties at Bubbs Pub.',
 };
 
-export default function EventsPage() {
-  const events: never[] = [];
+const EVENT_IMAGES = [
+  {
+    id: 'bingo',
+    alt: 'Bingo Night at Bubbs Pub',
+    mobile: '/images/events/bingo-mobile.jpeg',
+    desktop: '/images/events/bingo-desktop.png',
+  },
+  {
+    id: 'poker',
+    alt: 'Poker Night at Bubbs Pub',
+    mobile: '/images/events/poker-mobile.jpg',
+    desktop: '/images/events/poker-desktop.png',
+  },
+];
 
+export default function EventsPage() {
   return (
-    <div>
-      {FEATURES.showEventsHeroSection && <EventsHeroSection />}
-      <section
-        id="EventsList"
-        data-component="EventsList"
-        className="mx-auto w-full max-w-screen-xl px-4 py-16 md:px-6 md:py-24"
-      >
-        {events.length === 0 ? (
-          <div className="flex min-h-[40vh] items-center justify-center">
-            <p className="text-center text-2xl font-semibold text-muted-foreground md:text-3xl">
-              No upcoming events
-            </p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {/* Events will be rendered here */}
-          </div>
-        )}
-      </section>
+    <div
+      data-component="EventsPage"
+      className="space-y-3 p-3 pt-24 md:pt-28 bg-zinc-950"
+    >
+      {EVENT_IMAGES.map((img) => (
+        <section key={img.id} className="relative w-full">
+          {/* Mobile image */}
+          <Image
+            src={img.mobile}
+            alt={img.alt}
+            width={750}
+            height={1000}
+            className="block h-auto w-full rounded-lg md:hidden"
+            sizes="100vw"
+            priority={img.id === 'bingo'}
+          />
+          {/* Desktop image */}
+          <Image
+            src={img.desktop}
+            alt={img.alt}
+            width={1920}
+            height={1080}
+            className="hidden h-auto w-full rounded-lg md:block"
+            sizes="100vw"
+            priority={img.id === 'bingo'}
+          />
+        </section>
+      ))}
     </div>
   );
 }

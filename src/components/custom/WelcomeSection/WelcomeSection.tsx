@@ -20,7 +20,7 @@ interface FeatureCard {
   image: string;
   buttonText: string;
   buttonLink: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
 }
 
 const featureCards: FeatureCard[] = [
@@ -68,6 +68,27 @@ const featureCards: FeatureCard[] = [
         className="size-10"
       />
     ),
+  },
+  {
+    title: 'Pool Tables',
+    description: 'Challenge your friends to a game of pool in our rustic area',
+    image: '/images/landingPage/welcomeSection/pool_tables.png',
+    buttonText: 'Play Now',
+    buttonLink: '/activities',
+  },
+  {
+    title: 'Darts',
+    description: 'Hit the bullseye and enjoy some friendly competition',
+    image: '/images/landingPage/welcomeSection/darts.png',
+    buttonText: 'Play Now',
+    buttonLink: '/activities',
+  },
+  {
+    title: 'Slot Machines',
+    description: 'Try your luck on our modern, exciting slot machines',
+    image: '/images/landingPage/welcomeSection/slot_machines.png',
+    buttonText: 'Play Now',
+    buttonLink: '/activities',
   },
 ];
 
@@ -205,16 +226,14 @@ export const WelcomeSection = () => {
             you&apos;re stopping in for a casual meal with friends, catching the
             big game on our{' '}
             <span className="font-semibold text-white">wide-screen TVs</span>,
-            or celebrating with the community, our pub is the place to be. From
+            or celebrating with the community, our pub is the place to be. Enjoy
             sizzling <span className="font-semibold text-white">wings</span> and
-            loaded{' '}
-            <span className="font-semibold text-white">waffle fries</span> to
-            fresh <span className="font-semibold text-white">flatbreads</span>,
-            burgers, and craft brews, our menu is packed with{' '}
-            <span className="font-semibold text-white">
-              elevated comfort food
-            </span>{' '}
-            that fuels good times and great memories.
+            craft brews, challenge your friends to{' '}
+            <span className="font-semibold text-white">pool</span> or{' '}
+            <span className="font-semibold text-white">darts</span>, or try your
+            luck at our{' '}
+            <span className="font-semibold text-white">slot machines</span>. We
+            provide everything you need to fuel good times and great memories!
           </motion.p>
         </div>
 
@@ -231,7 +250,7 @@ export const WelcomeSection = () => {
               key={card.title}
               variants={cardVariants}
               style={{
-                y: reduce ? 0 : getParallaxOffset([0.8, 1.0, 1.2][index]),
+                y: reduce ? 0 : getParallaxOffset([0.8, 1.0, 1.2][index % 3]),
               }}
             >
               <Card className="group relative h-full overflow-hidden border-0 bg-stone-900/30 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl hover:shadow-brand/20">
@@ -249,9 +268,11 @@ export const WelcomeSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-stone-950/50 via-stone-950/20 to-transparent transition-opacity duration-500 group-hover:from-stone-950/60 group-hover:via-stone-950/30" />
 
                   {/* Icon Badge */}
-                  <div className="absolute left-4 top-4 rounded-full bg-brand/90 p-3 text-white shadow-lg backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-brand">
-                    {card.icon}
-                  </div>
+                  {card.icon && (
+                    <div className="absolute left-4 top-4 rounded-full bg-brand/90 p-3 text-white shadow-lg backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-brand">
+                      {card.icon}
+                    </div>
+                  )}
 
                   {/* Title Overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-6">

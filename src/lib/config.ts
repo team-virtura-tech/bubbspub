@@ -38,5 +38,5 @@ export const FEATURES = {
   /**
    * When true, shows hero section on the events page.
    */
-  showEventsHeroSection: false,
+  showEventsHeroSection: true,
 } as const;
