@@ -18,11 +18,11 @@ export const navigationItems: NavigationItem[] = [
         title: 'Full Menu',
         url: '/menu',
       },
-      {
-        id: 12,
-        title: 'Happy Hour',
-        url: '/menu/happy-hour',
-      },
+      // {
+      //   id: 12,
+      //   title: 'Happy Hour',
+      //   url: '/menu/happy-hour',
+      // },
       {
         id: 13,
         title: 'Daily Special',
