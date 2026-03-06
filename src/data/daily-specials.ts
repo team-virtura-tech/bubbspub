@@ -16,32 +16,26 @@ export const dailySpecials: DailySpecial[] = [
   // SUNDAY
   {
     id: 'sunday-boneless-wings',
-    item: '16ct Boneless Wings',
-    price: 14,
+    item: '12ct Boneless Wings',
+    price: 10,
     day: 'sunday',
   },
   {
     id: 'sunday-traditional-wings',
-    item: '16ct Traditional Wings',
-    price: 14,
+    item: '12ct Traditional Wings',
+    price: 10,
     day: 'sunday',
   },
   {
-    id: 'sunday-bear-down-bloody',
-    item: 'Bear Down Bloody',
+    id: 'sunday-bloodys',
+    item: "Bloody's",
     price: 7,
-    day: 'sunday',
-  },
-  {
-    id: 'sunday-beermosa',
-    item: 'Beermosa',
-    price: 6,
     day: 'sunday',
   },
   {
     id: 'sunday-mimosa',
     item: 'Mimosa',
-    price: 6,
+    price: 5,
     day: 'sunday',
   },
   {
@@ -50,18 +44,12 @@ export const dailySpecials: DailySpecial[] = [
     price: 12,
     day: 'sunday',
   },
-  {
-    id: 'sunday-gameday-buckets',
-    item: 'Gameday Buckets- Sunday only',
-    price: 'Domestic-$10 Import-$14',
-    day: 'sunday',
-  },
 
   // MONDAY
   {
     id: 'monday-domestic-draft-pints',
     item: 'Domestic Draft Pints',
-    price: 2.5,
+    price: 3,
     day: 'monday',
   },
   {
@@ -71,15 +59,9 @@ export const dailySpecials: DailySpecial[] = [
     day: 'monday',
   },
   {
-    id: 'monday-burgers',
-    item: 'Burgers',
+    id: 'monday-burgers-fries',
+    item: 'Burgers w/fries',
     price: 9,
-    day: 'monday',
-  },
-  {
-    id: 'monday-apps',
-    item: 'Apps- $2 off',
-    price: '$2 off',
     day: 'monday',
   },
 
@@ -109,9 +91,9 @@ export const dailySpecials: DailySpecial[] = [
     day: 'tuesday',
   },
   {
-    id: 'tuesday-kids-eat-free',
-    item: 'Kids Eat Free***',
-    price: 'Free',
+    id: 'tuesday-taco-entree',
+    item: 'Taco entree',
+    price: 8,
     day: 'tuesday',
   },
 
@@ -124,25 +106,19 @@ export const dailySpecials: DailySpecial[] = [
   },
   {
     id: 'wednesday-boneless-wings',
-    item: '16ct Boneless Wings w/fries',
-    price: 14,
+    item: '12ct Boneless Wings',
+    price: 10,
     day: 'wednesday',
   },
   {
     id: 'wednesday-traditional-wings',
-    item: '16ct Traditional Wings w/fries',
-    price: 14,
-    day: 'wednesday',
-  },
-  {
-    id: 'wednesday-old-fashioned-house',
-    item: 'Old Fashioned-House',
-    price: 6,
+    item: '12ct Traditional Wings',
+    price: 10,
     day: 'wednesday',
   },
   {
     id: 'wednesday-wine-any',
-    item: 'Wine-any-$5 glass',
+    item: 'Wine - $5 any glass',
     price: 5,
     day: 'wednesday',
   },
@@ -155,27 +131,27 @@ export const dailySpecials: DailySpecial[] = [
 
   // THURSDAY
   {
-    id: 'thursday-steak-dinner',
-    item: 'Steak Dinner',
-    price: 15.99,
+    id: 'thursday-burgers-fries',
+    item: 'Burgers w/fries',
+    price: 9,
     day: 'thursday',
   },
   {
     id: 'thursday-high-noon',
     item: 'High Noon',
-    price: 3.5,
+    price: 3,
     day: 'thursday',
   },
   {
     id: 'thursday-white-claw',
     item: 'White Claw',
-    price: 3.5,
+    price: 3,
     day: 'thursday',
   },
   {
-    id: 'thursday-u-call-it',
-    item: 'U Call It- $5',
-    price: 5,
+    id: 'thursday-signature-drinks',
+    item: 'All signature drinks',
+    price: '$4 off',
     day: 'thursday',
   },
 
@@ -187,33 +163,15 @@ export const dailySpecials: DailySpecial[] = [
     day: 'friday',
   },
   {
-    id: 'friday-buffalo-mac',
-    item: 'Buffalo Mac',
-    price: 14,
-    day: 'friday',
-  },
-  {
     id: 'friday-michelada',
     item: 'Michelada',
     price: 6,
     day: 'friday',
   },
   {
-    id: 'friday-crown-apple',
-    item: 'Crown Apple',
-    price: 5,
-    day: 'friday',
-  },
-  {
-    id: 'friday-crown-peach',
-    item: 'Crown Peach',
-    price: 4.5,
-    day: 'friday',
-  },
-  {
-    id: 'friday-signature-shots',
-    item: 'Signature Shots-$2 off',
-    price: '$2 off',
+    id: 'friday-chicken-parm-sandwich',
+    item: 'Chicken Parm Sandwich',
+    price: 10,
     day: 'friday',
   },
 
@@ -221,7 +179,7 @@ export const dailySpecials: DailySpecial[] = [
   {
     id: 'saturday-domestic-drafts-22oz',
     item: 'Domestic Drafts 22oz',
-    price: 4,
+    price: 4.5,
     day: 'saturday',
   },
   {
@@ -231,27 +189,21 @@ export const dailySpecials: DailySpecial[] = [
     day: 'saturday',
   },
   {
-    id: 'saturday-bear-down-bloody',
-    item: 'Bear Down Bloody',
+    id: 'saturday-bloodys',
+    item: "Bloody's",
     price: 7,
     day: 'saturday',
   },
   {
     id: 'saturday-mimosa',
     item: 'Mimosa',
-    price: 6,
+    price: 5,
     day: 'saturday',
   },
   {
-    id: 'saturday-beermosa',
-    item: 'Beermosa',
-    price: 6,
-    day: 'saturday',
-  },
-  {
-    id: 'saturday-all-salads',
-    item: 'All Salads-$2 Off',
-    price: '$2 Off',
+    id: 'saturday-loaded-waffle-fries',
+    item: 'Loaded Waffle Fries',
+    price: 8,
     day: 'saturday',
   },
 ];
