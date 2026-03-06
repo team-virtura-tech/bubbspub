@@ -22,12 +22,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.7,
     },
-    {
-      url: `${SITE_URL}/menu/happy-hour`,
-      lastModified: '2025-02-14',
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
+    // {
+    //   url: `${SITE_URL}/menu/happy-hour`,
+    //   lastModified: '2025-02-14',
+    //   changeFrequency: 'weekly',
+    //   priority: 0.7,
+    // },
     {
       url: `${SITE_URL}/drinks`,
       lastModified: '2025-02-14',

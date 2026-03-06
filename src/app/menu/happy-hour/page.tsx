@@ -1,3 +1,12 @@
+import { redirect } from 'next/navigation';
+
+// Hidden temporarily – uncomment everything below to restore Happy Hour page
+// Using redirect to /menu instead of notFound() to avoid Turbopack performance.measure bug
+export default function HappyHourPage() {
+  redirect('/menu');
+}
+
+/*
 'use client';
 
 import { motion } from 'framer-motion';
@@ -29,7 +38,7 @@ const HappyHourPage = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
+      {/* Hero Section *\/}
       <section className="flex min-h-[40vh] items-center justify-center pt-24">
         <div className="px-4 text-center">
           <motion.div
@@ -83,7 +92,7 @@ const HappyHourPage = () => {
         </div>
       </section>
 
-      {/* Menu Sections */}
+      {/* Menu Sections *\/}
       <div className="py-8">
         <MenuSection section={happyHourDrinksSection} />
         <MenuSection section={happyHourFoodSection} />
@@ -93,3 +102,4 @@ const HappyHourPage = () => {
 };
 
 export default HappyHourPage;
+*/
