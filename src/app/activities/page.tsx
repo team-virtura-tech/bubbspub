@@ -48,7 +48,7 @@ export default function ActivitiesPage() {
                 Pool Tables
               </h2>
               <p className="text-lg leading-8 text-stone-300 mb-6">
-                Step into our dedicated pool area featuring professional-grade
+                Step into our dedicated pool area featuring 3 professional-grade
                 tables set against our signature rustic backdrop. Perfect for
                 casual games with friends or serious competitive play.
               </p>
@@ -86,7 +86,7 @@ export default function ActivitiesPage() {
                 Darts
               </h2>
               <p className="text-lg leading-8 text-stone-300 mb-6">
-                Check out our classic dartboards framed against our exposed
+                Check out our 3 classic dartboards framed against our exposed
                 brick walls. It&apos;s the ultimate midwestern pub game to test
                 your precision while enjoying a cold pint.
               </p>
@@ -124,9 +124,9 @@ export default function ActivitiesPage() {
                 Gaming Area
               </h2>
               <p className="text-lg leading-8 text-stone-300 mb-6">
-                Feeling lucky? Try your hand at our premium selection of modern
-                slot machines. Our gaming area offers a thrilling experience
-                with the latest touch-screen games in a comfortable, exciting
+                Feeling lucky? Try your hand at our 6 premium modern slot
+                machines. Our gaming area offers a thrilling experience with the
+                latest touch-screen games in a comfortable, exciting
                 environment.
               </p>
               <ul className="space-y-3 text-stone-400">
