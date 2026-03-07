@@ -2,6 +2,7 @@ import { type Metadata } from 'next';
 
 import { HeroSection } from '@/components/custom/HeroSection';
 import { TodaySpecialSection } from '@/components/custom/TodaySpecialSection';
+import { UpcomingEventsSection } from '@/components/custom/UpcomingEventsSection';
 import { WelcomeSection } from '@/components/custom/WelcomeSection';
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export default function Home() {
       <HeroSection />
       <WelcomeSection />
       <TodaySpecialSection />
+      <UpcomingEventsSection />
     </div>
   );
 }
