@@ -109,7 +109,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${oswald.variable} ${lato.variable} antialiased`}>
+      <body
+        className={`${oswald.variable} ${lato.variable} antialiased`}
+        suppressHydrationWarning
+      >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
