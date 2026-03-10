@@ -71,7 +71,7 @@ export const EventCard = ({ event, id, className }: EventCardProps) => {
       )}
     >
       {/* Background image */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden md:aspect-[21/9]">
+      <div className="relative aspect-4/5 w-full overflow-hidden sm:aspect-16/10 md:aspect-21/9">
         <Image
           src={event.backgroundImage.desktop}
           alt={event.backgroundImage.alt}
@@ -85,10 +85,10 @@ export const EventCard = ({ event, id, className }: EventCardProps) => {
       </div>
 
       {/* Content overlay */}
-      <div className="absolute inset-0 flex flex-col p-5 px-8 md:p-8 md:px-16 lg:p-10 lg:px-20">
+      <div className="absolute inset-0 flex flex-col p-4 px-5 sm:p-5 sm:px-8 md:p-8 md:px-16 lg:p-10 lg:px-20">
         {/* Badges */}
         {badges.length > 0 && (
-          <div className="flex flex-wrap items-start gap-2 pt-1">
+          <div className="flex flex-wrap items-start gap-1.5 pt-1 sm:gap-2">
             {badges.map((badge) => (
               <span
                 key={badge}
@@ -107,12 +107,12 @@ export const EventCard = ({ event, id, className }: EventCardProps) => {
         )}
 
         {/* Main content row — text left, date right on desktop */}
-        <div className="my-auto flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="my-auto flex flex-col gap-4 sm:gap-6 md:flex-row md:items-end md:justify-between">
           {/* Left: text content */}
-          <div className="max-w-2xl space-y-3">
+          <div className="max-w-2xl space-y-2 sm:space-y-3">
             <h3
               className={cn(
-                'font-heading text-3xl leading-tight font-black tracking-tight uppercase md:text-4xl lg:text-5xl',
+                'font-heading text-2xl leading-tight font-black tracking-tight uppercase sm:text-3xl md:text-4xl lg:text-5xl',
                 isPast ? 'text-slate-400' : 'text-white'
               )}
             >
@@ -121,7 +121,7 @@ export const EventCard = ({ event, id, className }: EventCardProps) => {
 
             <p
               className={cn(
-                'max-w-xl text-sm leading-relaxed md:text-base',
+                'max-w-xl text-xs leading-relaxed sm:text-sm md:text-base',
                 isPast ? 'text-slate-500' : 'text-slate-300'
               )}
             >
@@ -159,7 +159,7 @@ export const EventCard = ({ event, id, className }: EventCardProps) => {
           {/* Right: date & time — stacked on mobile, right-aligned on desktop */}
           <div
             className={cn(
-              'flex shrink-0 items-center gap-4 md:flex-col md:items-end md:gap-1 md:text-right',
+              'flex shrink-0 items-center gap-3 sm:gap-4 md:flex-col md:items-end md:gap-1 md:text-right',
               isPast ? 'text-slate-500' : 'text-white'
             )}
           >
@@ -172,10 +172,10 @@ export const EventCard = ({ event, id, className }: EventCardProps) => {
 
             {/* Day + Month */}
             <div className="flex items-baseline gap-2 font-heading md:flex-col md:items-end md:gap-0">
-              <span className="text-4xl leading-none font-black md:text-6xl lg:text-7xl">
+              <span className="text-3xl leading-none font-black sm:text-4xl md:text-6xl lg:text-7xl">
                 {day}
               </span>
-              <span className="text-xl font-bold uppercase md:text-2xl">
+              <span className="text-base font-bold uppercase sm:text-xl md:text-2xl">
                 {month}
               </span>
             </div>

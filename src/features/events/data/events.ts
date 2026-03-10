@@ -97,4 +97,27 @@ export const events: PubEvent[] = [
     priceLabel: 'No Cover',
     status: 'active',
   },
+  {
+    id: 'st-paddys-day-mar-14',
+    name: "St. Paddy's Day Party",
+    description:
+      "St. Paddy's Day Party at Bubb's Corner Pub featuring live music by Bobby Styles. Enjoy green beer, Irish whiskey, and drink specials all night — no cover charge!",
+    startDate: '2026-03-14',
+    endDate: '2026-03-14',
+    startTime: '20:00',
+    endTime: '00:00',
+    isRecurring: false,
+    recurrence: null,
+    sponsor: null,
+    host: 'Bobby Styles',
+    deals: ['Green Beer', 'Irish Whiskey', 'Drink Specials'],
+    badges: ['Live Music', "St. Paddy's Day", 'No Cover'],
+    backgroundImage: {
+      desktop: '/images/eventsPage/st-paddys-day.png',
+      alt: "St. Paddy's Day Party at Bubbs Corner Pub",
+    },
+    category: 'live-music',
+    priceLabel: 'No Cover',
+    status: 'active',
+  },
 ];

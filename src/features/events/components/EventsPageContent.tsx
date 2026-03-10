@@ -46,7 +46,7 @@ export const EventsPageContent = () => {
                 title="Upcoming Events"
                 variant="upcoming"
                 events={grouped.upcoming}
-                className={grouped.today.length > 0 ? 'mt-20 md:mt-28' : ''}
+                className={grouped.today.length > 0 ? 'mt-14 md:mt-28' : ''}
               />
             )}
             {grouped.past.length > 0 && (
@@ -56,7 +56,7 @@ export const EventsPageContent = () => {
                 events={grouped.past}
                 className={
                   grouped.today.length > 0 || grouped.upcoming.length > 0
-                    ? 'mt-20 md:mt-28'
+                    ? 'mt-14 md:mt-28'
                     : ''
                 }
               />

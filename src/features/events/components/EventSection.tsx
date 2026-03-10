@@ -37,7 +37,7 @@ export const EventSection = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-50px' }}
         transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-        className="mb-10 md:mb-14"
+        className="mb-8 md:mb-14"
       >
         <h2
           className={cn(
@@ -62,7 +62,7 @@ export const EventSection = ({
       </motion.div>
 
       {/* Events — stacked full-width */}
-      <div className="flex flex-col gap-8 md:gap-12">
+      <div className="flex flex-col gap-6 md:gap-12">
         {events.map((event) => (
           <EventCard key={event.id} event={event} />
         ))}
