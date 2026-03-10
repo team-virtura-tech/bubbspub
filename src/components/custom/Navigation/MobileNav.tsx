@@ -83,6 +83,8 @@ export const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
                 >
                   <Link
                     href={orderOnlineItem.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={onClose}
                     className="cursor-pointer block rounded-lg bg-red-600 px-4 py-3 text-center text-base font-semibold uppercase tracking-wide text-white transition-colors hover:bg-red-700"
                   >

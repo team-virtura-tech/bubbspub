@@ -65,5 +65,5 @@ export const navigationItems: NavigationItem[] = [
 export const orderOnlineItem: NavigationItem = {
   id: 6,
   title: 'Order Online',
-  url: '/order-online',
+  url: 'https://order.toasttab.com/online/bubbscornerpub',
 };

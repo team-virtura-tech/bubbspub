@@ -4,8 +4,8 @@ import type React from 'react';
 
 import { Footer } from '@/components/custom/Footer';
 import { Navigation } from '@/components/custom/Navigation';
+import { OrderOnlineButton } from '@/components/custom/OrderOnline';
 import { SITE_NAME, SITE_URL } from '@/lib/config';
-// import { OrderOnlineButton } from '@/components/custom/OrderOnline';
 import './globals.css';
 
 const oswald = Oswald({
@@ -120,7 +120,7 @@ export default function RootLayout({
         <Navigation />
         {children}
         <Footer />
-        {/* <OrderOnlineButton /> */}
+        <OrderOnlineButton />
       </body>
     </html>
   );
