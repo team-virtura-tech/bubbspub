@@ -22,22 +22,9 @@ export const EventsPageContent = () => {
     <div
       id={componentName}
       data-component={componentName}
-      className="relative overflow-hidden"
+      className="relative bg-black"
     >
-      {/* Background — wall texture */}
-      <div
-        className="absolute inset-0 bg-cover bg-no-repeat"
-        style={{ backgroundImage: "url('/images/wall.png')" }}
-      >
-        <div className="absolute inset-0 bg-neutral-950/60" />
-      </div>
-
-      {/* Decorative grid */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px]" />
-      </div>
-
-      <div className="relative mx-auto w-full max-w-7xl px-4 py-16 md:px-6 md:py-24">
+      <div className="w-full px-4 py-12 md:px-6 md:py-20">
         {/* Filter Tabs */}
         <EventFilters activeFilter={filter} onFilterChange={setFilter} />
 
@@ -59,7 +46,7 @@ export const EventsPageContent = () => {
                 title="Upcoming Events"
                 variant="upcoming"
                 events={grouped.upcoming}
-                className={grouped.today.length > 0 ? 'mt-24' : ''}
+                className={grouped.today.length > 0 ? 'mt-20 md:mt-28' : ''}
               />
             )}
             {grouped.past.length > 0 && (
@@ -69,7 +56,7 @@ export const EventsPageContent = () => {
                 events={grouped.past}
                 className={
                   grouped.today.length > 0 || grouped.upcoming.length > 0
-                    ? 'mt-24'
+                    ? 'mt-20 md:mt-28'
                     : ''
                 }
               />

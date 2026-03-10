@@ -25,7 +25,7 @@ export const EventFilters = ({
       data-component="EventFilters"
       role="tablist"
       aria-label="Filter events"
-      className="mb-12 flex flex-wrap items-center justify-center gap-2"
+      className="mb-10 flex flex-wrap items-center gap-2 md:mb-14"
     >
       {filters.map(({ value, label }) => (
         <button
@@ -34,10 +34,10 @@ export const EventFilters = ({
           aria-selected={activeFilter === value}
           onClick={() => onFilterChange(value)}
           className={cn(
-            'cursor-pointer rounded-full px-5 py-2 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50',
+            'cursor-pointer border px-4 py-1.5 text-xs font-bold tracking-widest uppercase transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50',
             activeFilter === value
-              ? 'bg-brand text-white shadow-lg shadow-brand/25'
-              : 'border border-white/10 text-slate-400 hover:border-white/20 hover:text-white'
+              ? 'border-brand bg-brand text-white'
+              : 'border-white/20 text-slate-400 hover:border-white/40 hover:text-white'
           )}
         >
           {label}

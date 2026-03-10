@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 
 import { cn } from '@/lib/utils';
 
@@ -15,29 +15,13 @@ export type EventSectionProps = {
   className?: string;
 };
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.15 },
-  },
-};
-
-const headerVariants = {
-  hidden: { opacity: 0, y: -15 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] as const },
-  },
-};
-
 export const EventSection = ({
   title,
   variant,
   events,
   className,
 }: EventSectionProps) => {
+  const reduce = useReducedMotion();
   const isPast = variant === 'past';
   const isToday = variant === 'today';
 
@@ -49,50 +33,40 @@ export const EventSection = ({
     >
       {/* Section Header */}
       <motion.div
-        variants={headerVariants}
-        initial="hidden"
-        whileInView="visible"
+        initial={reduce ? false : { opacity: 0, y: -15 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-50px' }}
-        className="mb-12 text-center"
+        transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+        className="mb-10 md:mb-14"
       >
         <h2
           className={cn(
-            'mb-4 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl',
-            isPast && 'text-slate-500'
+            'text-2xl font-bold tracking-tight uppercase md:text-3xl lg:text-4xl',
+            isPast ? 'text-slate-500' : 'text-white'
           )}
         >
-          <span className={cn('font-heading', !isPast && 'neon-text')}>
-            {isToday && (
-              <span className="relative mr-3 inline-flex h-3 w-3 align-middle">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-75" />
-                <span className="relative inline-flex h-3 w-3 rounded-full bg-brand" />
-              </span>
-            )}
-            {title}
-          </span>
+          {isToday && (
+            <span className="relative mr-3 inline-flex h-2.5 w-2.5 align-middle">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-75" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-brand" />
+            </span>
+          )}
+          {title}
         </h2>
         <div
           className={cn(
-            'mx-auto w-32',
-            isPast
-              ? 'h-0.5 bg-linear-to-r from-transparent via-slate-600 to-transparent'
-              : 'h-1 bg-linear-to-r from-transparent via-brand to-transparent'
+            'mt-3',
+            isPast ? 'h-px w-16 bg-slate-700' : 'h-0.5 w-16 bg-brand'
           )}
         />
       </motion.div>
 
-      {/* Events Grid */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
-        className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
-      >
+      {/* Events — stacked full-width */}
+      <div className="flex flex-col gap-8 md:gap-12">
         {events.map((event) => (
           <EventCard key={event.id} event={event} />
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 };

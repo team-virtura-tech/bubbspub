@@ -1,33 +1,41 @@
-import Image from 'next/image';
+'use client';
+
+import { motion, useReducedMotion } from 'framer-motion';
 
 export const EventsHero = () => {
   const componentName = 'EventsHero';
+  const reduce = useReducedMotion();
 
   return (
     <section
       id={componentName}
       data-component={componentName}
-      className="relative h-[50vh] w-full overflow-hidden"
+      className="relative flex flex-col items-center justify-center bg-black px-4 pt-32 pb-12 md:pt-40 md:pb-16"
     >
-      <Image
-        src="/images/upcomingEventsPage/heroSection1.jpg"
-        alt="Events at Bubbs Corner Pub"
-        fill
-        priority
-        className="object-cover object-center"
-        sizes="100vw"
-        quality={90}
-      />
-      <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/40 to-black/70" />
+      <motion.p
+        initial={reduce ? false : { opacity: 0, y: -10 }}
+        animate={reduce ? {} : { opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="mb-4 text-xs font-medium tracking-[0.3em] text-slate-400 uppercase md:text-sm"
+      >
+        Bubb&apos;s Corner Pub
+      </motion.p>
 
-      <div className="relative z-10 flex h-full w-full flex-col items-center justify-center text-center px-6">
-        <h1 className="text-4xl font-bold text-white md:text-5xl lg:text-6xl">
-          Events
-        </h1>
-        <p className="mt-4 text-base text-white/90 md:text-lg lg:text-xl">
-          Live music, trivia, karaoke &amp; more at Bubb&apos;s Corner Pub
-        </p>
-      </div>
+      <motion.h1
+        initial={reduce ? false : { opacity: 0, y: 20 }}
+        animate={reduce ? {} : { opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        className="font-heading text-5xl font-black tracking-tight text-white uppercase md:text-7xl lg:text-8xl"
+      >
+        What&apos;s On
+      </motion.h1>
+
+      <motion.div
+        initial={reduce ? false : { scaleX: 0 }}
+        animate={reduce ? {} : { scaleX: 1 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="mt-4 h-1 w-20 bg-brand md:w-28"
+      />
     </section>
   );
 };

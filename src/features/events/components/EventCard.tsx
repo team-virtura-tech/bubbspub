@@ -1,15 +1,12 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Calendar, Clock } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 
-import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 
 import type { PubEvent } from '../types';
 import {
-  formatDisplayDate,
   formatDisplayTime,
   getBadgeClasses,
   getDisplayBadges,
@@ -22,62 +19,83 @@ export type EventCardProps = {
   className?: string;
 };
 
+/** Format YYYY-MM-DD → { day: "04", month: "MAR" } */
+function formatShortDate(dateStr: string): { day: string; month: string } {
+  const date = new Date(
+    ...(dateStr
+      .split('-')
+      .map((v, i) => (i === 1 ? Number(v) - 1 : Number(v))) as [
+      number,
+      number,
+      number,
+    ])
+  );
+  return {
+    day: date.getDate().toString().padStart(2, '0'),
+    month: date.toLocaleDateString('en-US', { month: 'short' }).toUpperCase(),
+  };
+}
+
 const cardVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] as const },
+    transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] as const },
   },
 };
 
 export const EventCard = ({ event, id, className }: EventCardProps) => {
   const componentName = 'EventCard';
+  const reduce = useReducedMotion();
   const group = getEventGroup(event);
   const isPast = group === 'past';
   const badges = getDisplayBadges(event);
+  const { day, month } = formatShortDate(event.startDate);
   const timeRange = `${formatDisplayTime(event.startTime)} – ${formatDisplayTime(event.endTime)}`;
 
   return (
-    <motion.div variants={cardVariants}>
-      <Card
-        id={id}
-        data-component={componentName}
-        className={cn(
-          'group relative overflow-hidden border-2 bg-transparent! shadow-none! h-full transition-all duration-300',
-          isPast
-            ? 'border-white/10 opacity-60'
-            : 'neon-border hover:neon-border-hover',
-          className
-        )}
-      >
-        {/* Image */}
-        <div
-          className={cn(
-            'relative h-44 w-full overflow-hidden',
-            isPast && 'grayscale'
-          )}
-        >
-          <Image
-            src={event.backgroundImage.desktop}
-            alt={event.backgroundImage.alt}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-          />
-          <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent" />
-        </div>
+    <motion.article
+      id={id}
+      data-component={componentName}
+      variants={cardVariants}
+      initial={reduce ? false : 'hidden'}
+      whileInView="visible"
+      viewport={{ once: true, margin: '-80px' }}
+      className={cn(
+        'group relative w-full overflow-hidden',
+        isPast && 'opacity-50 grayscale',
+        className
+      )}
+    >
+      {/* Background image */}
+      <div className="relative aspect-[16/10] w-full overflow-hidden md:aspect-[21/9]">
+        <Image
+          src={event.backgroundImage.desktop}
+          alt={event.backgroundImage.alt}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          sizes="100vw"
+        />
+        {/* Gradient overlays */}
+        <div className="absolute inset-0 bg-linear-to-t from-black via-black/70 to-black/20" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/60 to-transparent" />
+      </div>
 
+      {/* Content overlay */}
+      <div className="absolute inset-0 flex flex-col justify-end p-5 md:p-8 lg:p-10">
         {/* Badges */}
         {badges.length > 0 && (
-          <div className="absolute top-3 right-3 z-10 flex flex-col items-end gap-1.5">
+          <div className="mb-auto flex flex-wrap items-start gap-2 pt-1">
             {badges.map((badge) => (
               <span
                 key={badge}
                 className={cn(
-                  'rounded-full px-2.5 py-0.5 text-xs font-semibold backdrop-blur-sm',
-                  isPast ? 'bg-white/5 text-slate-500' : getBadgeClasses(badge)
+                  'border px-3 py-1 text-[10px] font-bold tracking-widest uppercase',
+                  isPast
+                    ? 'border-white/20 text-slate-500'
+                    : getBadgeClasses(badge),
+                  'bg-clip-padding backdrop-blur-sm'
                 )}
               >
                 {badge}
@@ -86,96 +104,94 @@ export const EventCard = ({ event, id, className }: EventCardProps) => {
           </div>
         )}
 
-        <CardContent className="relative space-y-3 p-4 bg-transparent!">
-          {/* Name */}
-          <div>
+        {/* Main content row — text left, date right on desktop */}
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          {/* Left: text content */}
+          <div className="max-w-2xl space-y-3">
             <h3
               className={cn(
-                'text-xl font-bold tracking-tight md:text-2xl',
+                'font-heading text-3xl leading-tight font-black tracking-tight uppercase md:text-4xl lg:text-5xl',
                 isPast ? 'text-slate-400' : 'text-white'
               )}
             >
               {event.name}
             </h3>
-            <div className="mt-1.5 h-0.5 w-12 bg-brand/50" />
-          </div>
 
-          {/* Date & Time */}
-          <div className="flex flex-wrap items-center gap-3 text-sm">
-            <span
+            <p
               className={cn(
-                'flex items-center gap-1.5',
+                'max-w-xl text-sm leading-relaxed md:text-base',
                 isPast ? 'text-slate-500' : 'text-slate-300'
               )}
             >
-              <Calendar className="h-3.5 w-3.5" />
-              {formatDisplayDate(event.startDate)}
-            </span>
-            <span
-              className={cn(
-                'flex items-center gap-1.5',
-                isPast ? 'text-slate-500' : 'text-brand'
-              )}
-            >
-              <Clock className="h-3.5 w-3.5" />
-              {timeRange}
-            </span>
+              {event.description}
+            </p>
+
+            {/* Deals as arrow-prefixed list */}
+            {event.deals.length > 0 && !isPast && (
+              <ul className="space-y-1 pt-1">
+                {event.deals.map((deal) => (
+                  <li
+                    key={deal}
+                    className="flex items-start gap-2 text-xs font-semibold tracking-wide text-white uppercase md:text-sm"
+                  >
+                    <span className="text-brand">&rarr;</span>
+                    {deal}
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {/* Hosted by */}
+            {event.host && (
+              <p
+                className={cn(
+                  'pt-2 text-[10px] font-medium tracking-widest uppercase md:text-xs',
+                  isPast ? 'text-slate-600' : 'text-slate-500'
+                )}
+              >
+                Hosted by {event.host}
+              </p>
+            )}
           </div>
 
-          {/* Host */}
-          {event.host && (
-            <p
-              className={cn(
-                'text-xs',
-                isPast ? 'text-slate-500' : 'text-slate-400'
-              )}
-            >
-              Hosted by {event.host}
-            </p>
-          )}
-
-          {/* Description */}
-          <p
+          {/* Right: date & time — stacked on mobile, right-aligned on desktop */}
+          <div
             className={cn(
-              'line-clamp-2 text-sm leading-relaxed',
-              isPast ? 'text-slate-500' : 'text-slate-300'
+              'flex shrink-0 items-center gap-4 md:flex-col md:items-end md:gap-1 md:text-right',
+              isPast ? 'text-slate-500' : 'text-white'
             )}
           >
-            {event.description}
-          </p>
-
-          {/* Deals */}
-          {event.deals.length > 0 && !isPast && (
-            <div className="flex flex-wrap gap-1.5">
-              {event.deals.slice(0, 2).map((deal) => (
-                <span
-                  key={deal}
-                  className="rounded-full bg-brand/15 px-2.5 py-0.5 text-xs font-medium text-brand"
-                >
-                  {deal}
-                </span>
-              ))}
-            </div>
-          )}
-
-          {/* Footer: Price + Sponsor */}
-          <div className="flex items-center justify-between pt-1 text-xs">
-            <span
-              className={cn(
-                'font-semibold',
-                isPast ? 'text-slate-500' : 'text-white'
-              )}
-            >
-              {event.priceLabel}
-            </span>
-            {event.sponsor && (
-              <span className="text-slate-500">
-                Sponsored by {event.sponsor.name}
+            {/* Recurrence label */}
+            {event.isRecurring && event.recurrence && !isPast && (
+              <span className="hidden text-[10px] font-medium tracking-widest uppercase md:block">
+                {event.recurrence.label}
               </span>
             )}
+
+            {/* Day + Month */}
+            <div className="flex items-baseline gap-2 font-heading md:flex-col md:items-end md:gap-0">
+              <span className="text-4xl leading-none font-black md:text-6xl lg:text-7xl">
+                {day}
+              </span>
+              <span className="text-xl font-bold uppercase md:text-2xl">
+                {month}
+              </span>
+            </div>
+
+            {/* Time + recurrence (mobile inline) */}
+            <div className="flex flex-col items-start gap-0.5 text-xs md:items-end md:text-sm">
+              <span className={isPast ? 'text-slate-600' : 'text-slate-400'}>
+                {timeRange}
+              </span>
+              {event.isRecurring && event.recurrence && !isPast && (
+                <span className="text-slate-500 md:hidden">
+                  {event.recurrence.label}
+                </span>
+              )}
+            </div>
           </div>
-        </CardContent>
-      </Card>
-    </motion.div>
+        </div>
+      </div>
+    </motion.article>
   );
 };
