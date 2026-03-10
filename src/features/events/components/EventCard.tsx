@@ -52,6 +52,8 @@ export const EventCard = ({ event, id, className }: EventCardProps) => {
   const isPast = group === 'past';
   const badges = getDisplayBadges(event);
   const { day, month } = formatShortDate(event.startDate);
+  const end =
+    event.endDate !== event.startDate ? formatShortDate(event.endDate) : null;
   const timeRange = `${formatDisplayTime(event.startTime)} – ${formatDisplayTime(event.endTime)}`;
 
   return (
@@ -83,10 +85,10 @@ export const EventCard = ({ event, id, className }: EventCardProps) => {
       </div>
 
       {/* Content overlay */}
-      <div className="absolute inset-0 flex flex-col justify-end p-5 md:p-8 lg:p-10">
+      <div className="absolute inset-0 flex flex-col p-5 px-8 md:p-8 md:px-16 lg:p-10 lg:px-20">
         {/* Badges */}
         {badges.length > 0 && (
-          <div className="mb-auto flex flex-wrap items-start gap-2 pt-1">
+          <div className="flex flex-wrap items-start gap-2 pt-1">
             {badges.map((badge) => (
               <span
                 key={badge}
@@ -105,7 +107,7 @@ export const EventCard = ({ event, id, className }: EventCardProps) => {
         )}
 
         {/* Main content row — text left, date right on desktop */}
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div className="my-auto flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           {/* Left: text content */}
           <div className="max-w-2xl space-y-3">
             <h3
@@ -177,6 +179,21 @@ export const EventCard = ({ event, id, className }: EventCardProps) => {
                 {month}
               </span>
             </div>
+
+            {/* End date for recurring events */}
+            {end && (
+              <div className="flex items-baseline gap-1 font-heading text-sm md:flex-col md:items-end md:gap-0">
+                <span className={isPast ? 'text-slate-600' : 'text-slate-400'}>
+                  to
+                </span>
+                <span className="text-lg leading-none font-black md:text-2xl">
+                  {end.day}
+                </span>
+                <span className="text-sm font-bold uppercase md:text-base">
+                  {end.month}
+                </span>
+              </div>
+            )}
 
             {/* Time + recurrence (mobile inline) */}
             <div className="flex flex-col items-start gap-0.5 text-xs md:items-end md:text-sm">

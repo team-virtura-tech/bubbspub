@@ -1,7 +1,6 @@
 import type { PubEvent } from '../types';
 
 export const events: PubEvent[] = [
-  // ─── UPCOMING ──────────────────────────────────────────────────
   {
     id: 'bingo-mar-12',
     name: 'Xtreme Bar Bingo',
@@ -22,8 +21,7 @@ export const events: PubEvent[] = [
     ],
     badges: ['Every Thursday', 'Bingo', 'Free to Play'],
     backgroundImage: {
-      desktop: '/images/events/bingo-desktop.png',
-      mobile: '/images/events/bingo-mobile.jpeg',
+      desktop: '/images/eventsPage/bingo.png',
       alt: 'Xtreme Bar Bingo night at Bubbs Corner Pub',
     },
     category: 'bingo',
@@ -36,25 +34,23 @@ export const events: PubEvent[] = [
     description:
       "Free Texas Holdem Poker by Smoke'N Aces Poker League. Compete for points & prizes — top point leaders win entry to Main Events and Rounder Rumbles. Up to $5,000 in cash prizes. Qualify for a seat to the Tournament of Champions for a $10,000 WSOP Main Event Seat. 21 to play, no purchase required.",
     startDate: '2026-03-13',
-    endDate: '2026-03-13',
+    endDate: '2026-03-27',
     startTime: '19:00',
     endTime: '23:00',
     isRecurring: true,
-    recurrence: { frequency: 'weekly', dayOfWeek: 4, label: 'Every Thursday' },
+    recurrence: { frequency: 'weekly', dayOfWeek: 5, label: 'Every Friday' },
     sponsor: { name: "Smoke'N Aces Poker League" },
     host: 'Smokenacespoker',
     deals: ['Up to $5,000 in Cash Prizes', '$10,000 WSOP Main Event Seat'],
     badges: ['Every Friday', '21+', 'Free Entry', 'Cash Prizes'],
     backgroundImage: {
-      desktop: '/images/events/poker-desktop.png',
-      mobile: '/images/events/poker-mobile.jpg',
+      desktop: '/images/eventsPage/poker.png',
       alt: 'Free Texas Holdem Poker Tournament at Bubbs Corner Pub',
     },
     category: 'poker',
     priceLabel: 'Free Entry',
     status: 'active',
   },
-  // ─── PAST ──────────────────────────────────────────────────────
   {
     id: 'gaming-go-live',
     name: 'Gaming Go Live',
@@ -71,8 +67,7 @@ export const events: PubEvent[] = [
     deals: [],
     badges: ['Gaming', 'Prize: 65" Smart TV'],
     backgroundImage: {
-      desktop: '/images/events/gaming-desktop.png',
-      mobile: '/images/events/gaming-mobile.png',
+      desktop: '/images/eventsPage/game-night.png',
       alt: 'Gaming Go Live event at Bubbs Corner Pub',
     },
     category: 'gaming',
@@ -95,8 +90,7 @@ export const events: PubEvent[] = [
     deals: [],
     badges: ['Live Music'],
     backgroundImage: {
-      desktop: '/images/events/live-event-desktop.png',
-      mobile: '/images/events/live-event-mobile.png',
+      desktop: '/images/eventsPage/live-music.png',
       alt: "Matt Froelich live at Bubb's Corner Pub",
     },
     category: 'live-music',
