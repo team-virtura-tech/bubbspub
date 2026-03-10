@@ -21,9 +21,13 @@ export function getToday(): Date {
 export function getEventGroup(event: PubEvent): EventGroup {
   const today = getToday();
   const start = parseLocalDate(event.startDate);
-  const end = parseLocalDate(event.endDate);
+  // No endDate means the event runs indefinitely
+  const hasEnd = !!event.endDate;
+  const end = hasEnd ? parseLocalDate(event.endDate) : null;
 
-  if (today >= start && today <= end) {
+  const isActive = today >= start && (end === null || today <= end);
+
+  if (isActive) {
     // Recurring events only count as "today" on their scheduled day
     if (event.isRecurring && event.recurrence) {
       return today.getDay() === event.recurrence.dayOfWeek

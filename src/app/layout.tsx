@@ -5,6 +5,7 @@ import type React from 'react';
 import { Footer } from '@/components/custom/Footer';
 import { Navigation } from '@/components/custom/Navigation';
 import { OrderOnlineButton } from '@/components/custom/OrderOnline';
+import { TodaysHighlightsModalProvider } from '@/components/custom/TodaysHighlightsModal';
 import { SITE_NAME, SITE_URL } from '@/lib/config';
 import './globals.css';
 
@@ -121,6 +122,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <OrderOnlineButton />
+        <TodaysHighlightsModalProvider />
       </body>
     </html>
   );

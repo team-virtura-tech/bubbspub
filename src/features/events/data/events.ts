@@ -7,7 +7,7 @@ export const events: PubEvent[] = [
     description:
       'Xtreme Bar Bingo — free to play with a cash jackpot up to $15,000! Progressive jackpot, weekly drawings, deluxe prizes, and fabulous bar prizes every Thursday.',
     startDate: '2026-03-04',
-    endDate: '2026-03-26',
+    endDate: '',
     startTime: '19:00',
     endTime: '21:30',
     isRecurring: true,
@@ -34,7 +34,7 @@ export const events: PubEvent[] = [
     description:
       "Free Texas Holdem Poker by Smoke'N Aces Poker League. Compete for points & prizes — top point leaders win entry to Main Events and Rounder Rumbles. Up to $5,000 in cash prizes. Qualify for a seat to the Tournament of Champions for a $10,000 WSOP Main Event Seat. 21 to play, no purchase required.",
     startDate: '2026-03-13',
-    endDate: '2026-03-27',
+    endDate: '',
     startTime: '19:00',
     endTime: '23:00',
     isRecurring: true,

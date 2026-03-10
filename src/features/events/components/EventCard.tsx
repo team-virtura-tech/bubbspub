@@ -53,7 +53,9 @@ export const EventCard = ({ event, id, className }: EventCardProps) => {
   const badges = getDisplayBadges(event);
   const { day, month } = formatShortDate(event.startDate);
   const end =
-    event.endDate !== event.startDate ? formatShortDate(event.endDate) : null;
+    event.endDate && event.endDate !== event.startDate
+      ? formatShortDate(event.endDate)
+      : null;
   const timeRange = `${formatDisplayTime(event.startTime)} – ${formatDisplayTime(event.endTime)}`;
 
   return (
