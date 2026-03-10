@@ -1,1 +1,0 @@
-export { EventsHeroSection } from './EventsHeroSection';

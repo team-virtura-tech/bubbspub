@@ -2,8 +2,8 @@ import { type Metadata } from 'next';
 
 import { HeroSection } from '@/components/custom/HeroSection';
 import { TodaySpecialSection } from '@/components/custom/TodaySpecialSection';
-import { UpcomingEventsSection } from '@/components/custom/UpcomingEventsSection';
 import { WelcomeSection } from '@/components/custom/WelcomeSection';
+import { HomepageEventsPreview } from '@/features/events';
 
 export const metadata: Metadata = {
   keywords: ['South Elgin Pub', 'Sports Bar', 'Family Restaurant'],
@@ -15,7 +15,7 @@ export default function Home() {
       <HeroSection />
       <WelcomeSection />
       <TodaySpecialSection />
-      <UpcomingEventsSection />
+      <HomepageEventsPreview />
     </div>
   );
 }
