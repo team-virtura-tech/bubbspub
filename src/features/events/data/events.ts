@@ -38,11 +38,15 @@ export const events: PubEvent[] = [
     startTime: '19:00',
     endTime: '23:00',
     isRecurring: true,
-    recurrence: { frequency: 'weekly', dayOfWeek: 5, label: 'Every Friday' },
+    recurrence: {
+      frequency: 'weekly',
+      dayOfWeek: [0, 4],
+      label: 'Every Thursday & Sunday',
+    },
     sponsor: { name: "Smoke'N Aces Poker League" },
     host: 'Smokenacespoker',
     deals: ['Up to $5,000 in Cash Prizes', '$10,000 WSOP Main Event Seat'],
-    badges: ['Every Friday', '21+', 'Free Entry', 'Cash Prizes'],
+    badges: ['Every Thursday & Sunday', '21+', 'Free Entry', 'Cash Prizes'],
     backgroundImage: {
       desktop: '/images/eventsPage/poker.png',
       alt: 'Free Texas Holdem Poker Tournament at Bubbs Corner Pub',
@@ -50,6 +54,7 @@ export const events: PubEvent[] = [
     category: 'poker',
     priceLabel: 'Free Entry',
     status: 'active',
+    hideStartDate: true,
   },
   {
     id: 'gaming-go-live',

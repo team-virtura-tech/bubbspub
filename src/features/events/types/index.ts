@@ -20,8 +20,8 @@ export type EventStatus =
 export type EventRecurrence = {
   /** 'weekly' | 'biweekly' | 'monthly' */
   frequency: 'weekly' | 'biweekly' | 'monthly';
-  /** 0 = Sunday … 6 = Saturday */
-  dayOfWeek: number;
+  /** 0 = Sunday … 6 = Saturday. Pass an array for multiple days. */
+  dayOfWeek: number | number[];
   /** Human-readable label, e.g. "Every Thursday" */
   label: string;
 };
@@ -59,6 +59,8 @@ export type PubEvent = {
   category: EventCategory;
   priceLabel: string;
   status: EventStatus;
+  /** When true, hides the start-date block in the event card (useful for multi-day recurring events) */
+  hideStartDate?: boolean;
 };
 
 export type EventGroup = 'today' | 'upcoming' | 'past';

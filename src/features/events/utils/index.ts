@@ -30,9 +30,11 @@ export function getEventGroup(event: PubEvent): EventGroup {
   if (isActive) {
     // Recurring events only count as "today" on their scheduled day
     if (event.isRecurring && event.recurrence) {
-      return today.getDay() === event.recurrence.dayOfWeek
-        ? 'today'
-        : 'upcoming';
+      const days = event.recurrence.dayOfWeek;
+      const isToday = Array.isArray(days)
+        ? days.includes(today.getDay())
+        : today.getDay() === days;
+      return isToday ? 'today' : 'upcoming';
     }
     return 'today';
   }

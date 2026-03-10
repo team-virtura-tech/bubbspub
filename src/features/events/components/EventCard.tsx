@@ -172,29 +172,35 @@ export const EventCard = ({ event, id, className }: EventCardProps) => {
               </span>
             )}
 
-            {/* Day + Month */}
-            <div className="flex items-baseline gap-2 font-heading md:flex-col md:items-end md:gap-0">
-              <span className="text-3xl leading-none font-black sm:text-4xl md:text-6xl lg:text-7xl">
-                {day}
-              </span>
-              <span className="text-base font-bold uppercase sm:text-xl md:text-2xl">
-                {month}
-              </span>
-            </div>
+            {/* Day + Month + End date — hidden when hideStartDate is set */}
+            {!event.hideStartDate && (
+              <>
+                <div className="flex items-baseline gap-2 font-heading md:flex-col md:items-end md:gap-0">
+                  <span className="text-3xl leading-none font-black sm:text-4xl md:text-6xl lg:text-7xl">
+                    {day}
+                  </span>
+                  <span className="text-base font-bold uppercase sm:text-xl md:text-2xl">
+                    {month}
+                  </span>
+                </div>
 
-            {/* End date for recurring events */}
-            {end && (
-              <div className="flex items-baseline gap-1 font-heading text-sm md:flex-col md:items-end md:gap-0">
-                <span className={isPast ? 'text-slate-600' : 'text-slate-400'}>
-                  to
-                </span>
-                <span className="text-lg leading-none font-black md:text-2xl">
-                  {end.day}
-                </span>
-                <span className="text-sm font-bold uppercase md:text-base">
-                  {end.month}
-                </span>
-              </div>
+                {/* End date for recurring events */}
+                {end && (
+                  <div className="flex items-baseline gap-1 font-heading text-sm md:flex-col md:items-end md:gap-0">
+                    <span
+                      className={isPast ? 'text-slate-600' : 'text-slate-400'}
+                    >
+                      to
+                    </span>
+                    <span className="text-lg leading-none font-black md:text-2xl">
+                      {end.day}
+                    </span>
+                    <span className="text-sm font-bold uppercase md:text-base">
+                      {end.month}
+                    </span>
+                  </div>
+                )}
+              </>
             )}
 
             {/* Time + recurrence (mobile inline) */}
