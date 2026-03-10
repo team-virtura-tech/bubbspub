@@ -42,7 +42,7 @@ export const navigationItems: NavigationItem[] = [
   },
   {
     id: 3,
-    title: 'Upcoming Events',
+    title: 'Events',
     url: '/events',
   },
   {
