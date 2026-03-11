@@ -6,7 +6,7 @@ import { Footer } from '@/components/custom/Footer';
 import { Navigation } from '@/components/custom/Navigation';
 import { OrderOnlineButton } from '@/components/custom/OrderOnline';
 import { TodaysHighlightsModalProvider } from '@/components/custom/TodaysHighlightsModal';
-import { SITE_NAME, SITE_URL } from '@/lib/config';
+import { PUB_LOCATION, SITE_NAME, SITE_URL } from '@/lib/config';
 import './globals.css';
 
 const oswald = Oswald({
@@ -65,25 +65,21 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Restaurant',
-  name: "Bubb's Corner Pub",
+  name: PUB_LOCATION.name,
   image: `${SITE_URL}/images/landingPage/heroSection/heroSection4.png`,
   '@id': SITE_URL,
   url: SITE_URL,
-  telephone: '+1-224-238-3168',
+  telephone: PUB_LOCATION.telephone,
   menu: `${SITE_URL}/menu`,
   acceptsReservations: false,
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '335 N McLean Blvd',
-    addressLocality: 'South Elgin',
-    addressRegion: 'IL',
-    postalCode: '60177',
-    addressCountry: 'US',
+    ...PUB_LOCATION.address,
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: 41.9936,
-    longitude: -88.2917,
+    latitude: PUB_LOCATION.geo.latitude,
+    longitude: PUB_LOCATION.geo.longitude,
   },
   openingHoursSpecification: [
     {

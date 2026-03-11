@@ -146,3 +146,5 @@ export function hasEventsForFilter(
       return grouped.past.length > 0;
   }
 }
+
+export * from './seo';

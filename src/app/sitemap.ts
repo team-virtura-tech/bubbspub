@@ -36,7 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/events`,
-      lastModified: '2025-02-14',
+      lastModified: new Date().toISOString().split('T')[0],
       changeFrequency: 'weekly',
       priority: 0.8,
     },
